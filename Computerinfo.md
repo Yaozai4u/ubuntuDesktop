@@ -18,3 +18,7 @@ System board and thermal fan removal and installation
 http://support.lenovo.com/en_US/product-and-parts/detail.page?DocID=PD024458
 
 
+Techspes
+
+http://shop.lenovo.com/se/en/laptops/thinkpad/s-series/s430/#techspecs
+
