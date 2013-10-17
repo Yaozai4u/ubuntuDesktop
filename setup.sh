@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# Simple setup.sh for configuring my Ubuntu server
+clear
+
+echo "update & upgrade..."
+sudo apt-get update
+sudo apt-get upgrade
+
+#Install git
+echo "Install git"
+
+sudo apt-get install -y git
+
+
+echo "Disable guest"
+sudo /usr/lib/lightdm/lightdm-set-defaults -l false
+
+
+#cd $HOME
+#if [ -d ./ubuntuDesktop/ ]; then
+#	echo "Found old ubuntuDesktop and backup."
+#	mv ubuntuDesktop ubuntuDektop.old
+#fi
+
+#echo "Clone ubuntuDesktop from github"
+#git clone https://github.com/Yaozai4u/ubuntuDesktop.git
+
+#echo "setup .bash file."
+#ln -sb ubuntuDesktop/dotfiles/.bash_profile .
+#ln-sb ubuntuDesktop/dotfiles/.bashrc .
+#ln -sb ubuntuDesktop/dotfiles/.bashrc_custom .
+
+
+bash ./setup/tools.sh
+
