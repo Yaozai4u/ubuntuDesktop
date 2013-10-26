@@ -31,6 +31,11 @@ sudo /usr/lib/lightdm/lightdm-set-defaults -l false
 #ln-sb ubuntuDesktop/dotfiles/.bashrc .
 #ln -sb ubuntuDesktop/dotfiles/.bashrc_custom .
 
-
+bash ./setup/media.sh
 bash ./setup/tools.sh
-
+bash ./setup/media.sh
+bash ./setup/network.sh
+bash ./setup/driver.sh
+bash ./setup/windows.sh
+bash ./setup/dev.sh
+bash ./setup/performance.sh

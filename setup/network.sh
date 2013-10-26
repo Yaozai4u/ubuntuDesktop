@@ -14,7 +14,10 @@ echo "install filezilla"
 sudo apt-get install -y filezilla
 
 echo "install fping"
-sudo apt-get install fping
+sudo apt-get install -y fping
+
+echo "Remote desktop"
+sudo apt-get install -y Remmina
 
 
 echo "install chrome"
@@ -23,3 +26,5 @@ sudo sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /et
 sudo apt-get update 
 sudo apt-get install google-chrome-stable
 
+echo "wireshark network capture"
+sudo apt-get install -y wireshark
