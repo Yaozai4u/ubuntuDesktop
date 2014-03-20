@@ -18,6 +18,7 @@
 # tune2fs -o journal_data_writeback /dev/sda1
 # To delete journal remove
 # tune2fs -O ^has_journal /dev/sda1
+
 #Check if everything is ok
 # e2fsck -f /dev/sda1
 

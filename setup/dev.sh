@@ -91,8 +91,14 @@ echo "adb device"
 
 echo "Install Virtualbox 4.3"
 #~ http://ubuntuhandbook.org/index.php/2013/10/virtualbox-4-3-released-install-or-upgrade-in-ubuntu-linux-mint/
-sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc)  contrib" >> /etc/apt/sources.list'
-sudo apt-get update
-sudo apt-get install virtualbox-4.3
+# sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc)  contrib" >> /etc/apt/sources.list'
+# sudo apt-get update
+# sudo apt-get install virtualbox-4.3
 
+# http://www.webupd8.org/2013/10/virtualbox-43-released-with-multi-touch.html
+echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
+wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+sudo apt-get install virtualbox-4.3
+wget http://download.virtualbox.org/virtualbox/4.3.0/Oracle_VM_VirtualBox_Extension_Pack-4.3.0-89960.vbox-extpack -O /tmp/Oracle_VM_VirtualBox_Extension_Pack-4.3.0-89960.vbox-extpack
+sudo VBoxManage extpack install --replace /tmp/Oracle_VM_VirtualBox_Extension_Pack-4.3.0-89960.vbox-extpack
 

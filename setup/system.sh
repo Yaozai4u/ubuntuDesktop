@@ -111,12 +111,21 @@ sudo apt-get install gddrescue
 # http://goo.gl/UjvM6Z
 # http://www.kossboss.com/linux---how-to-clone-a-disk-with-ddrescue---dnu-ddrescue-also-known-as-gddrescue---the-better-ddrescue-tool
 # ddrescue -v -n /dev/sdc /dev/sdd ddrlog.txt
+# ddrescue -v -n /dev/sda1 /media/yaozai/FreeAgent\ GoFlex\ Drive/Backup/tools.img ddrlog.txt
+# mount xxx.img /folder  -o loop
+# https://help.ubuntu.com/community/DataRecovery
 
+sudo apt-get install -y foremost
+
+# http://www.cgsecurity.org/wiki/TestDisk
+sudo apt-get install testdrive-cli
 
 
 # Fonts
 # http://www.binarytides.com/gorgeous-looking-fonts-ubuntu-linux/
+# cat /etc/fonts/conf.d/50-user.conf 
 sudo cp -a ../fonts/* /usr/share/fonts
+rsync -a /config/ubuntuDesktop/config/font.conf ~/.config/fontconfig/
 sudo fc-cache -f -v
 
 # Disable System Crash Reports:

@@ -24,14 +24,11 @@ sudo apt-get install -y sweethome3d
 #~ http://ubuntuhandbook.org/index.php/page/24/
 #~ Install FFmpeg 2.0 via PPA:
 sudo add-apt-repository -y ppa:samrog131/ppa
-sudo apt-get update
-sudo apt-get install ffmpeg
-sudo apt-add-repository --remove ppa:samrog131/ppa
-sudo apt-get update
 
-# Still have problems
-echo "WinFF Video converter"
-sudo apt-get install -y winff libavcodec-extra-53
+# sudo apt-add-repository --remove ppa:samrog131/ppa
+# sudo apt-get update
+
+
 
 #~ sudo apt-get purge libavcodec53       
 #~ Reading package lists... Done
@@ -63,13 +60,15 @@ sudo add-apt-repository -y ppa:brousselle/slowmovideo
 #~ record-animated-gif-screencasts-ubuntu
 sudo add-apt-repository -y ppa:fossfreedom/byzanz
 #~ Picapy is a Desktop App to manage your Picasa Web photos
-sudo add-apt-repository -y ppa:atareao/atareao
+# sudo add-apt-repository -y ppa:atareao/atareao
 
 #~ WebcamStudio ppa
 sudo add-apt-repository -y ppa:webcamstudio/webcamstudio-dailybuilds
 
 
 sudo apt-get update
+
+sudo apt-get install -y ffmpeg
 
 
 #~ http://ubuntuhandbook.org/index.php/2013/10/install-slowmovideo-slow-motion-video-ubuntu1310/
@@ -88,6 +87,9 @@ sudo apt-get install -y byzanz
 #~ https://launchpad.net/~webcamstudio/+archive/webcamstudio-dailybuilds
 sudo apt-get install -y webcamstudio
 
+# Still have problems
+echo "WinFF Video converter"
+sudo apt-get install -y winff libavcodec-extra-53
 
 #~ Pinta is a Paint.NET-like image drawing and editing program 
 #~ http://ubuntuhandbook.org/index.php/category/howtos/page/32/
