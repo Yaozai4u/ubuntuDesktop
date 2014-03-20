@@ -25,7 +25,18 @@ echo "install indicator cpu frequency"
 sudo apt-get install -y indicator-cpufreq
 
 echo "install Hardware Temp Monitor"
-sudo apt-get install -y lm-sensors hddtemp psensor
+# http://askubuntu.com/questions/30334/what-application-indicators-are-available?page=3&tab=votes#tab-top
+# https://help.ubuntu.com/community/SensorInstallHowto
+sudo apt-get install lm-sensors hddtemp
+sudo sensors-detect
+
+sudo service module-init-tools start
+# Psensor installation:
+sudo add-apt-repository ppa:jfi/ppa
+sudo apt-get update
+sudo apt-get install psensor
+
+# sudo apt-get install -y lm-sensors hddtemp psensor
 
 echo "Class menu Indicator"
 sudo apt-get install -y classicmenu-indicator
@@ -94,5 +105,21 @@ sudo apt-get install fcitx-googlepinyin
 #sudo apt-get install  -y timeshift
 #~ rsync -ai --delete --numeric-ids --relative --delete-excluded --exclude-from=/mnt/timeshift/timeshift/snapshots/.sync/exclude.list /. /mnt/timeshift/timeshift/snapshots/.sync/localhost/
 
+# ddresuce
 
+sudo apt-get install gddrescue
+# http://goo.gl/UjvM6Z
+# http://www.kossboss.com/linux---how-to-clone-a-disk-with-ddrescue---dnu-ddrescue-also-known-as-gddrescue---the-better-ddrescue-tool
+# ddrescue -v -n /dev/sdc /dev/sdd ddrlog.txt
+
+
+
+# Fonts
+# http://www.binarytides.com/gorgeous-looking-fonts-ubuntu-linux/
+sudo cp -a ../fonts/* /usr/share/fonts
+sudo fc-cache -f -v
+
+# Disable System Crash Reports:
+sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport
+sudo service apport stop
 

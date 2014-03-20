@@ -1,6 +1,6 @@
 #!/bin/bash
 
-
+# http://askubuntu.com/questions/30334/what-application-indicators-are-available
 
 
 
@@ -10,19 +10,18 @@ sudo apt-get install -y k4dirstat
 echo "gksu"
 sudo apt-get install -y gksu
 
+# http://www.noobslab.com/2013/04/tweaksthings-to-do-after-install-of.html
+
 echo "Unity Tweak tool"
 sudo apt-get install -y unity-tweak-tool
 
 echo "Gnome Tweak Tool"
 sudo apt-get install -y gnome-tweak-tool
 
-echo "install ubuntu tweak"
-sudo apt-get install ubuntu-tweak
 
 echo "Install Compression/Decompression tools"
 sudo apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 #~ http://www.thegeekstuff.com/2010/04/view-and-extract-packages/
-
 
 
 #echo "install micom for comport"
@@ -39,8 +38,8 @@ echo "install htop"
 sudo apt-get install -y htop
 
 
-echo "nautilus open terminal"
-sudo apt-get install -y nautilus-open-terminal
+# echo "nautilus open terminal"
+# sudo apt-get install -y nautilus-open-terminal
 
 echo "powertop"
 # https://wiki.archlinux.org/index.php/powertop
@@ -58,6 +57,8 @@ sudo apt-get install -y Terminator
 
 
 
+
+
 #http://askubuntu.com/questions/76712/setting-nautilus-open-terminal-to-launch-terminator-rather-than-gnome-terminal
 
 echo "change open terminal to terminator"
@@ -65,14 +66,47 @@ gsettings set org.gnome.desktop.default-applications.terminal exec /usr/bin/term
 gsettings set org.gnome.desktop.default-applications.terminal exec-arg "-x"
 
 
-echo "Debian Package Search"
+echo "Keyboard Status Monitor (key-mon)"
 
-echo "Nautilus Compare Extension"
+# Description: Utility to show live keyboard and mouse status for teaching and screencasts
+# Website: http://code.google.com/p/key-mon/
+sudo apt-get install key-mon
+
+
+# echo "Debian Package Search"
+
+# echo "Nautilus Compare Extension"
 # http://askubuntu.com/questions/287430/nautilus-compare-meld-integration-with-nautilus-and-other-nautilus-actions-ext
 # sudo ln -s /usr/lib/libphython2.7.so.1 /usr/lib/libpython2.7.so
 # sudo ldconfig
 
 echo "add other ppa"
+
+
+# System Load Indicator
+# http://www.webupd8.org/2011/05/network-memory-and-cpu-usage-indicator.html
+# If you want the latest updates
+sudo add-apt-repository -y ppa:indicator-multiload/stable-daily
+sudo apt-get update
+sudo apt-get install -y indicator-multiload
+
+
+sudo add-apt-repository -y ppa:umang/indicator-stickynotes
+sudo apt-get update
+sudo apt-get install indicator-stickynotes
+
+
+# http://www.hardcoded.net/dupeguru/
+# dupeGuru is a tool to find duplicate files on your computer. It can scan either filenames or contents.
+
+ sudo add-apt-repository -y ppa:hsoft/ppa
+sudo apt-get update
+
+
+# http://ubuntu-tweak.com/downloads/
+sudo add-apt-repository -y ppa:tualatrix/ppa
+
+
 
 sudo add-apt-repository -y ppa:shutter/ppa
 #~ hotshots
@@ -85,14 +119,10 @@ sudo add-apt-repository -y ppa:webupd8team/y-ppa-manager
 
 sudo apt-get update
 
-echo  "Install Hotshots screenshot & annotation app"
+# echo  "Install Hotshots screenshot & annotation app"
 
 
-# Keyboard Status Monitor (key-mon)
 
-# Description: Utility to show live keyboard and mouse status for teaching and screencasts
-# Website: http://code.google.com/p/key-mon/
-sudo apt-get install key-mon
 
 echo "install shutter."
 sudo apt-get install -y shutter
@@ -100,6 +130,8 @@ sudo apt-get install -y shutter
 #~ sudo apt-get install -y hotshots
 
 
+echo "install ubuntu tweak"
+sudo apt-get install -y ubuntu-tweak
 
 
 

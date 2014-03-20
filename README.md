@@ -27,3 +27,5 @@ Reference
 http://www.webupd8.org/
 http://www.webupd8.org/p/ubuntu-ppas-by-webupd8.html
 http://wiki.xfce.org/recommendedapps
+http://ubuntuhandbook.org/
+http://www.noobslab.com/2013/04/tweaksthings-to-do-after-install-of.html
