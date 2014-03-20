@@ -1,5 +1,6 @@
 #!/bin/bash
-
+# wine
+# sudo add-apt-repository -y ppa:ubuntu-wine/ppa
 
 # https://help.ubuntu.com/community/PlayOnLinux
 # Fixed for chinese display

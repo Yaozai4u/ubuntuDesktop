@@ -13,8 +13,7 @@ echo "Install git"
 sudo apt-get install -y git
 
 
-echo "Disable guest"
-sudo /usr/lib/lightdm/lightdm-set-defaults -l false
+
 
 
 #cd $HOME
