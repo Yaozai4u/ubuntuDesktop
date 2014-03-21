@@ -125,7 +125,13 @@ sudo add-apt-repository -y ppa:tualatrix/ppa
 
 
 sudo add-apt-repository -y ppa:shutter/ppa
-#~ hotshots
+# http://askubuntu.com/questions/252717/how-to-make-shutter-as-the-default-screenshot-tool
+# for selection  Shift+F11
+# shutter -s 
+
+
+
+~ hotshots
 #~ sudo add-apt-repository -y ppa:dhor/myway
 
 

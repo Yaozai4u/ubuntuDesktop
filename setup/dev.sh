@@ -11,7 +11,7 @@
 #Diffuse
 #Description: Graphical tool for merging and comparing text files
 #Website: http://diffuse.sourceforge.net/
-sudo apt-get install -y diffusecd 
+sudo apt-get install -y diffuse
 
 
 # Geany
@@ -38,11 +38,18 @@ sudo add-apt-repository ppa:webupd8team/sublime-text-3
 sudo apt-get update
 sudo apt-get install sublime-text-installer
 
+# https://sublime.wbond.net/
+# Package Control 新網站上線，找 Package 更方便了，每個 Package 還有漂亮的下載統計圖表！
+# plugins
+# Big5
+# https://github.com/seanliang/Codecs33/tree/linux-x64
+# https://github.com/seanliang/ConvertToUTF8
 
 
 echo "Android tools adb"
 
 sudo apt-get install -y android-tools-adb android-tools-fastboot
+
 
 
 
@@ -71,10 +78,8 @@ echo "adb device"
 #- http://bernaerts.dyndns.org/linux/74-ubuntu/245-ubuntu-precise-install-android-sdk
 #- Bus 003 Device 013: ID 2717:9039  
 
-#-http://ubuntuforums.org/showthread.php?t=1918512
-#- $ lsusb 
-#- Bus 003 Device 009: ID 2717:9039  
-#- $ udevadm info -q all -n /dev/bus/usb/003/009
+echo "Http regression testing and benchmarking utility"
+sudo apt-get install siege
 
 # E: ID_MODEL=MI_2
 # E:ID_MODEL_ID=9039
@@ -90,10 +95,6 @@ echo "adb device"
 
 
 echo "Install Virtualbox 4.3"
-#~ http://ubuntuhandbook.org/index.php/2013/10/virtualbox-4-3-released-install-or-upgrade-in-ubuntu-linux-mint/
-# sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc)  contrib" >> /etc/apt/sources.list'
-# sudo apt-get update
-# sudo apt-get install virtualbox-4.3
 
 # http://www.webupd8.org/2013/10/virtualbox-43-released-with-multi-touch.html
 echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list

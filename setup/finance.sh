@@ -10,3 +10,8 @@ sudo apt-get install -y pcscd pcsc-tools libccid libpcsc-perl
 
 echo "Please insert Smart Card Reader. Ctrl+Shift+C to Exit."
 pcsc_scan
+
+
+# http://www.hardcoded.net/moneyguru/
+
+sudo apt-get install -y moneyguru

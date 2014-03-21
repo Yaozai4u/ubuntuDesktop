@@ -38,3 +38,5 @@ bash ./setup/driver.sh
 bash ./setup/windows.sh
 bash ./setup/dev.sh
 bash ./setup/performance.sh
+bash ./setup/finance.sh
+bash ./setup/living.sh

@@ -29,3 +29,5 @@ http://www.webupd8.org/p/ubuntu-ppas-by-webupd8.html
 http://wiki.xfce.org/recommendedapps
 http://ubuntuhandbook.org/
 http://www.noobslab.com/2013/04/tweaksthings-to-do-after-install-of.html
+http://www.unixmen.com/top-things-installing-ubuntu-13-10/
+http://ubuntuhandbook.org/

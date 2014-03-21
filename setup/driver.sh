@@ -25,6 +25,12 @@ sudo cp ../scripts/brightness /usr/local/bin
 # cat /sys/class/backlight/intel_backlight/max_brightness
 # sudo sed  -i "/exit/ { N; s/exit\n/\/usr\/local\/bin\/brightness restore\n&/ }" /etc/rc.local
 
+# /etc/rc.local
+# /usr/local/bin/brightness restore
+# https://sites.google.com/site/easylinuxtipsproject/ssd#TOC-Limit-swap-wear-and-tame-the-inode-cache
+# fstrim -v /cache/
+
+
 
 # http://www.webupd8.org/2012/06/calise-sets-screen-backlight-based-on.html
 
