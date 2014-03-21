@@ -41,6 +41,7 @@ sudo apt-get install -y htop
 # echo "nautilus open terminal"
 # sudo apt-get install -y nautilus-open-terminal
 
+
 echo "powertop"
 # https://wiki.archlinux.org/index.php/powertop
 sudo apt-get install -y powertop
@@ -80,6 +81,11 @@ sudo apt-get install key-mon
 # sudo ln -s /usr/lib/libphython2.7.so.1 /usr/lib/libpython2.7.so
 # sudo ldconfig
 
+# pretty good Bulk Rename tool
+
+sudo apt-get install thunar
+
+
 echo "add other ppa"
 
 
@@ -98,9 +104,19 @@ sudo apt-get install indicator-stickynotes
 
 # http://www.hardcoded.net/dupeguru/
 # dupeGuru is a tool to find duplicate files on your computer. It can scan either filenames or contents.
-
  sudo add-apt-repository -y ppa:hsoft/ppa
+
+# http://www.howtogeek.com/116807/how-to-easily-add-custom-right-click-options-to-ubuntus-file-manager/
+
+sudo apt-add-repository -y ppa:nae-team/ppa
+
+
 sudo apt-get update
+
+
+sudo apt-get install nautilus-actions nautilus-actions-extra
+
+
 
 
 # http://ubuntu-tweak.com/downloads/

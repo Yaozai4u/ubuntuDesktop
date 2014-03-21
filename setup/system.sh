@@ -114,14 +114,19 @@ sudo apt-get install gddrescue
 # ddrescue -v -n /dev/sda1 /media/yaozai/FreeAgent\ GoFlex\ Drive/Backup/tools.img ddrlog.txt
 # mount xxx.img /folder  -o loop
 # https://help.ubuntu.com/community/DataRecovery
-
+# http://members.iinet.net.au/~herman546/p21.html
+# http://www.cyberciti.biz/tips/understanding-unixlinux-file-system-part-i.html
 sudo apt-get install -y foremost
+# http://www.youtube.com/watch?v=P767rumEIKw
+# foremost -i /dev/xxx -a -v -o /recoverydir
+
 
 # http://www.cgsecurity.org/wiki/TestDisk
-sudo apt-get install testdrive-cli
+sudo apt-get install testdisk
 
 
 # Fonts
+# http://sourceforge.net/projects/sourcecodepro.adobe/files/
 # http://www.binarytides.com/gorgeous-looking-fonts-ubuntu-linux/
 # cat /etc/fonts/conf.d/50-user.conf 
 sudo cp -a ../fonts/* /usr/share/fonts

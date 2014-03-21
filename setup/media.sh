@@ -71,6 +71,7 @@ sudo apt-get update
 sudo apt-get install -y ffmpeg
 
 
+sudo cp ../scripts/ffmpeg-split.py /usr/bin/
 #~ http://ubuntuhandbook.org/index.php/2013/10/install-slowmovideo-slow-motion-video-ubuntu1310/
 echo "Install Slow motion video Editor"
 sudo apt-get install -y slowmovideo
