@@ -195,3 +195,7 @@ source ~/.bashrc_custom
 ## for node developer
 # source ~/.bashrc_node
 
+if [ -f /etc/bash_completion ]; then
+  . /etc/bash_completion
+fi
+

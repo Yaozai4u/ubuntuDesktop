@@ -76,10 +76,7 @@ sudo apt-get install key-mon
 
 # echo "Debian Package Search"
 
-# echo "Nautilus Compare Extension"
-# http://askubuntu.com/questions/287430/nautilus-compare-meld-integration-with-nautilus-and-other-nautilus-actions-ext
-# sudo ln -s /usr/lib/libphython2.7.so.1 /usr/lib/libpython2.7.so
-# sudo ldconfig
+
 
 # pretty good Bulk Rename tool
 
@@ -108,13 +105,15 @@ sudo apt-get install indicator-stickynotes
 
 # http://www.howtogeek.com/116807/how-to-easily-add-custom-right-click-options-to-ubuntus-file-manager/
 
-sudo apt-add-repository -y ppa:nae-team/ppa
+# problem with nautilus-python
+# sudo apt-add-repository -y ppa:nae-team/ppa
 
 
 sudo apt-get update
 
 
-sudo apt-get install nautilus-actions nautilus-actions-extra
+sudo apt-get install nautilus-actions 
+# remove some problem with rabbit-cvs problem with python nautilus-actions-extra
 
 
 

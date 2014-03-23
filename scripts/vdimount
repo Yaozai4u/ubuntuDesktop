@@ -1,0 +1,192 @@
+#!/bin/bash
+usagedesc="You can use [$0 mountdir vdifile :device] for mount or [$0 mountdir] to unmount\n ex: \n\tdirect mount: sudo $0 /mnt/vdi /vdifile.vdi /dev/nbd0p1\n\task device: sudo $0 /mnt/vdi /vdifile.vdi\n\tumount: sudo $0 /mnt/vdi\n\tStep by Step: sudo $0";
+
+if [ "$(id -u)" != "0" ]; then
+echo 'This script must be run as root'
+echo -e $usagedesc
+exit 1
+fi
+SETTINGS=~/.vdimount.txt
+CANONPATH=`readlink -f "$0"`
+FOLDERPATH=`dirname "$CANONPATH"`
+if [ -e "/media" ]; then
+	mountdir=/media/vdi
+	else
+	mountdir=/mnt/vdi
+fi
+
+if  test -z "$1" 
+then
+	echo -e " $usagedesc "
+else
+	mountdir=$1
+fi
+
+if  test -n "$2" 
+then
+	VDI=$2
+	if [ ! -e "$VDI" ]; then
+		echo "cannot find $VDI file."
+	exit 1
+	fi
+fi
+
+
+binskip=`grep -o "binskip" $SETTINGS`
+if [ "$binskip" != binskip ]; then
+	if [ "$FOLDERPATH" != /usr/bin ]; then
+		echo "-----------------------------------------------"
+		echo "Install Script as Command(/usr/bin)? [Y/n]"
+		read bininstall
+		bininstall=${bininstall:-Y}
+		echo "-----------------------------------------------"
+		if [ "$bininstall" = Y ]; then
+			echo binskip >> $SETTINGS
+			cp "$CANONPATH" /usr/bin/vdimount
+			chmod +rx /usr/bin/vdimount
+			echo "Script Installed to /usr/bin as 'vdimount'"
+			echo "Restart Terminal for Changes to Take Effect"
+			read -p "press any key to exit..." presss
+			exit 1
+		fi
+	fi
+	echo binskip >> $SETTINGS
+fi
+checknbd=`dpkg-query -W -f='${Status}' qemu-kvm`
+if [ "$checknbd" != "install ok installed" ]; then
+	echo "Missing Deppendencies!"
+	read -p "Install them?[Y/n]" installnbd
+	installnbd=${installnbd:-Y}
+	if [ $installnbd = Y ]; then
+		apt-get install qemu-kvm
+		rmmod nbd
+		modprobe nbd max_part=9
+		echo "Dependencies Setup and Installed!!"
+		read -p "press any key to continue..."
+	else
+		echo "Script can't run without them!"
+		exit 1
+	fi
+fi
+nbdmount=`ls /dev | grep "nbd"`
+if [ -z "$nbdmount" ]; then
+	modprobe nbd max_part=9
+fi
+clear
+
+if [ -z "$1" -a -z "$2" ]; then
+
+echo "VDI MOUNTER v1.6.1"
+echo "-----------------------------------"
+echo "What to do?"
+echo "1: Mount VDI"
+echo "2: Unmount VDI (2-f: Force Unmount)"
+echo "3: Check VDI Mount"
+echo "rs: Clear Settings File"
+read userselect
+else
+
+	if [ -z "$2" ]
+	then
+		echo "umount $mountdir";
+		userselect=2;
+	else
+		userselect=1;
+		echo "$VDI to $mountdir"
+	fi
+
+fi
+
+if [ "$userselect" = 1 ]; then
+	if mountpoint -q "$mountdir"; then
+		echo "**********************************************"
+		echo "VDI Already Mounted! Unmount it First before Mounting Again!"
+		exit 1
+	fi
+
+		if test -z "$VDI" 
+		then
+		echo "-----------------------------------------------"
+		echo "Enter VDI Location:(Full Path without Quotes)";
+		read VDI
+		fi
+	
+		echo "-----------------------------------------------"
+		echo "You have selected: $VDI"
+		
+
+			
+		qemu-nbd -c /dev/nbd0 $VDI
+		echo "--VDI Mounted--"
+		#read -p "press any key to continue" press
+		#clear
+		echo "-----------------------------------------------"
+		echo "VDI $VDI"
+		sfdisk -luM /dev/nbd0
+		echo "-----------------------------------------------"
+		
+		if  test -z "$3" 
+		then
+			echo "Enter Partition to be Mounted"
+			read -p "[default:/dev/nbd0p1]" device
+			device=${device:-/dev/nbd0p1}
+		else
+			device=$3
+		fi
+		echo "Try to mount device: $device:";
+		
+		#if [ $device =  ]; then
+			#qemu-nbd -d /dev/nbd0
+			#echo "****************************"; echo "Quitting Because of Error!"; exit 1
+		#fi
+		if [ ! -e "$mountdir" ]; then
+			mkdir $mountdir
+		fi
+		mount $device $mountdir
+		clear
+		echo "-----------------------------------------------"
+		echo "$device"
+		echo "of"
+		echo "$VDI"
+		echo "Mounted to $mountdir"
+		echo "-----------------------------------------------"
+fi
+if [ "$userselect" = 2 ]; then
+	if mountpoint -q "$mountdir"; then
+		umount $mountdir
+		qemu-nbd -d /dev/nbd0
+		echo "-----------------------------------------------"
+		echo "VDI Unmounted"
+		exit 1
+	else
+		echo "**********************************************"
+		echo "No VDI Mounted!"
+		echo "****************************"; echo "Quitting Because of Error!"; exit 1
+	fi
+fi
+if [ "$userselect" = "2-f" ]; then
+		umount $mountdir
+		qemu-nbd -d /dev/nbd0
+		echo "-----------------------------------------------"
+		echo "VDI Unmounted"
+		exit 1
+fi
+if [ "$userselect" = 3 ]; then
+	if mount | grep -q "/dev/nbd0"; then
+		echo "-----------------------------------------------"
+		echo "A VDI is Mounted!"
+		highlight=`mount | grep "/dev/nbd0"`
+		echo "$highlight"
+		exit 1
+	else
+		echo "**********************************************"
+		echo "No VDI Mounted!"
+		echo "****************************"; echo "Quitting Because of Error!"; exit 1
+	fi
+fi
+if [ "$userselect" = rs ]; then
+	rm ~/vdimount.txt
+	echo "-----------------------------------------------"
+	echo "Settings File Cleared!"
+fi
+

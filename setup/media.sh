@@ -1,8 +1,8 @@
 #!/bin/bash
 
 echo " Install Codecs"
-sudo apt-get install -y gstreamer0.10-plugins-ugly gstreamer0.10-ffmpeg libxine1-ffmpeg gxine mencoder libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321
-
+# http://www.unixmen.com/top-things-installing-ubuntu-13-10/
+sudo apt-get install -y gstreamer0.10-plugins-ugly gstreamer0.10-ffmpeg libxine1-ffmpeg gxine mencoder libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 gstreamer1.0-libav
 
 echo "install ubuntu restricted extras mp3 playback decoding."
 sudo apt-get install -y ubuntu-restricted-extras
@@ -82,8 +82,15 @@ sudo add-apt-repository -y ppa:rebuntu16/avidemux+unofficial
 # http://ubuntuhandbook.org/index.php/2014/02/install-ffdiaporama-2-1-ubuntu/
 sudo add-apt-repository -y ppa:ffdiaporamateam/stable
 
+
+# This isn't a converter. It is an encoder. You can only rip bluray or dvd videos with this tool. 
+# sudo add-apt-repository -y ppa:stebbins/handbrake-snapshots 
+#- See more at: http://www.unixmen.com/how-to-encode-moviesvideos-using-handbrake/#sthash.pvVYfmaH.dpuf
+
 sudo apt-get update
 
+
+# sudo apt-get install -y handbreak-gtk
 
 # http://www.openshot.org/
 # OpenShot Video Editor is a free, open-source video editor

@@ -40,3 +40,5 @@ bash ./setup/dev.sh
 bash ./setup/performance.sh
 bash ./setup/finance.sh
 bash ./setup/living.sh
+bash ./setup/mobile.sh
+bash ./setup/monitoring.sh

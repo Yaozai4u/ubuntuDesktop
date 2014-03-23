@@ -83,6 +83,7 @@ sudo apt-get install fontconfig-infinality
 # echo "install laptop detect"
 # sudo apt-get install -y laptop-detect
 
+# http://www.unixmen.com/how-to-improve-laptop-battery-life-and-usage-in-linux-using-tlp/
 
 # http://www.webupd8.org/2013/04/improve-power-usage-battery-life-in.html
 # http://linrunner.de/en/tlp/docs/tlp-linux-advanced-power-management.html
@@ -90,7 +91,10 @@ sudo apt-get install fontconfig-infinality
 # http://linrunner.de/en/tlp/docs/tlp-configuration.html
 sudo add-apt-repository -y ppa:linrunner/tlp
 sudo apt-get update
-sudo apt-get install tlp tlp-rdw tp-smapi-dkms acpi-call-tools
+# If you are installing on a recent Thinkpad that has an Ivy Bridge processor (X230, T430, T530, etc.), tp_smapi will not work. 
+# Use thinkpad-acpi.
+# tp-smapi-dkms
+sudo apt-get install tlp tlp-rdw  acpi-call-tools
 
 #~ google pinyin
 sudo add-apt-repository -y ppa:fcitx-team/nightly
@@ -182,3 +186,4 @@ sudo cp ../config/com.ubuntu.enable-hibernate.pkla /var/lib/polkit-1/localauthor
 
 
 # sudo apt-add-repository --remove
+# sudo apt-get --reinstall install  packages

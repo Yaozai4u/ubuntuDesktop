@@ -41,8 +41,9 @@ alias du='du -ch --max-depth=1'
 alias treeacl='tree -A -C -L 2'
 
 
-alias nano="nano -u"
+alias nano="nano -u -m -$ -c "
 alias netstati="netstat --verbose --tcp --udp --programs --extend"
+alias ug='sudo apt-get update && sudo apt-get upgrade'
 alias aptsearch='sudo aptitude search'
 alias aptshow='sudo aptitude show'
 alias installed='dpkg --get-selections'
@@ -51,6 +52,21 @@ alias installwhere='dpkg -L'
 alias aptversion='apt-cache policy'
 alias h=history
 
+alias hotspots='sudo ap-hotspot'
 
-alias ug="sudo apt-get update && sudo apt-get upgrade"
+
+# http://gitimmersion.com/lab_11.html
+
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+alias gl="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+
+
 
