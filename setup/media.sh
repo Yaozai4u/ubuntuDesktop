@@ -14,7 +14,8 @@ echo "Image gimp"
 # http://www.unixmen.com/top-things-installing-ubuntu-13-10/
 sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras
 
-
+echo "gthumb"
+sudo apt-get install -y gthumb
 
 echo "Creating Panoramas"
 #pandora

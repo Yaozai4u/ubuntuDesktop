@@ -179,11 +179,17 @@ sudo service apport stop
 # cat /etc/fstab | grep swap
 #edit swap in /etc/initramfs-tools/conf.d/resume
 # sudo update-initramfs -u
+# sudo pm-is-supported --hibernate && echo "hibernation is supported" || echo "your system doesn't support hibernation"
 
 sudo cp ../config/com.ubuntu.enable-hibernate.pkla /var/lib/polkit-1/localauthority/50-local.d/
 
 # sleep 60 && killall indicator-session-service
 
+# http://www.prjorgensen.com/2012/11/29/ubuntu-12-04-hybrid-suspend-on-lenovo-t430s/
+# http://www.webupd8.org/2012/11/how-to-use-hybrid-suspend-in-ubuntu.html
+# sudo pm-is-supported --suspend-hybrid && echo "hybrid suspend is supported" || echo "your system doesn't support hybrid suspend"
+sudo cp ../config/00-use-suspend-hybrid /etc/pm/config.d/
 
 # sudo apt-add-repository --remove
 # sudo apt-get --reinstall install  packages
+

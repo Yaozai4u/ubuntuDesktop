@@ -1,8 +1,9 @@
 #!/bin/bash
 
-# http://askubuntu.com/questions/30334/what-application-indicators-are-available
 
-
+echo " GUI for rsync"
+# http://ubuntuforums.org/showthread.php?t=1758704
+sudo apt-get install -y grsync
 
 echo "Disk Manager"
 sudo apt-get install -y k4dirstat
@@ -33,18 +34,10 @@ sudo apt-get install -y gufw
 echo "install keepass2"
 sudo apt-get install -y keepass2
 
-
-echo "install htop"
-sudo apt-get install -y htop
-
-
 # echo "nautilus open terminal"
 # sudo apt-get install -y nautilus-open-terminal
 
 
-echo "powertop"
-# https://wiki.archlinux.org/index.php/powertop
-sudo apt-get install -y powertop
 
 echo "install Terminator"
 sudo apt-get install -y Terminator
@@ -86,17 +79,12 @@ sudo apt-get install thunar
 echo "add other ppa"
 
 
-# System Load Indicator
-# http://www.webupd8.org/2011/05/network-memory-and-cpu-usage-indicator.html
-# If you want the latest updates
-sudo add-apt-repository -y ppa:indicator-multiload/stable-daily
-sudo apt-get update
-sudo apt-get install -y indicator-multiload
 
+
+# http://askubuntu.com/questions/30334/what-application-indicators-are-available
 
 sudo add-apt-repository -y ppa:umang/indicator-stickynotes
-sudo apt-get update
-sudo apt-get install indicator-stickynotes
+
 
 
 # http://www.hardcoded.net/dupeguru/
@@ -108,16 +96,6 @@ sudo apt-get install indicator-stickynotes
 # problem with nautilus-python
 # sudo apt-add-repository -y ppa:nae-team/ppa
 
-
-sudo apt-get update
-
-
-sudo apt-get install nautilus-actions 
-# remove some problem with rabbit-cvs problem with python nautilus-actions-extra
-
-
-
-
 # http://ubuntu-tweak.com/downloads/
 sudo add-apt-repository -y ppa:tualatrix/ppa
 
@@ -128,17 +106,30 @@ sudo add-apt-repository -y ppa:shutter/ppa
 # for selection  Shift+F11
 # shutter -s 
 
+#~ ppa manager
+sudo add-apt-repository -y ppa:webupd8team/y-ppa-manager
+
+
+
+sudo apt-get update
+
+
+sudo apt-get install indicator-stickynotes
+
+
+sudo apt-get install nautilus-actions 
+# remove some problem with rabbit-cvs problem with python nautilus-actions-extra
+# http://askubuntu.com/questions/76712/setting-nautilus-open-terminal-to-launch-terminator-rather-than-gnome-terminal
+
+
+
+
 
 
 ~ hotshots
 #~ sudo add-apt-repository -y ppa:dhor/myway
 
 
-#~ ppa manager
-sudo add-apt-repository -y ppa:webupd8team/y-ppa-manager
-
-
-sudo apt-get update
 
 # echo  "Install Hotshots screenshot & annotation app"
 

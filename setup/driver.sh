@@ -3,6 +3,9 @@
 echo "install Nividia Driver bumblebee"
 sudo apt-get install -y bumblebee bumblebee-nvidia linux-headers-generic
 
+# http://askubuntu.com/questions/10082/which-is-the-best-way-to-install-new-hplip-versions
+# sudo apt-get install hplip
+# sudo hp-setup -i
 
 #echo "install fingerprint driver."
 #sudo add-apt-repository ppa:fingerprint/fingerprint-gui

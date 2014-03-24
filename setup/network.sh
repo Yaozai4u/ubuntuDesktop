@@ -1,5 +1,11 @@
 !/bin/bash
 
+# https://wiki.ubuntu.com/MountWindowsSharesPermanently
+# //servername/sharename /media/windowsshare cifs credentials=/home/ubuntuusername/.smbcredentials,iocharset=utf8,sec=ntlm 0 0
+# remount
+# mount -a
+
+
 echo "install flash plugin"
 sudo apt-get install -y flashplugin-installer
 
