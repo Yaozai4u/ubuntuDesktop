@@ -73,8 +73,20 @@ sudo apt-get install virtualbox-4.3
 #
 wget http://dlc.sun.com.edgesuite.net/virtualbox/4.3.8/Oracle_VM_VirtualBox_Extension_Pack-4.3.8.vbox-extpack -O /tmp/Oracle_VM_VirtualBox_Extension_Pack.vbox-extpack
 sudo VBoxManage extpack install --replace /tmp/Oracle_VM_VirtualBox_Extension_Pack.vbox-extpack
-
 # https://forums.virtualbox.org/viewtopic.php?f=3&t=14976
 # vboxmanage clonehd /Data/VHD/W7ScomDev.vhd ./W7SCOM.vdi --format vdi
 # vboxmanage clonevdi uid-without-brackets out.vdi
 cp ../scripts/vdimount /usr/bin/vdimount
+
+# http://www.randallkent.com/virtual-box/change-uuid-of-virtualbox-vdi
+# VBoxManage internalcommands sethduuid vdi
+# add differencing vhd
+# add parent vhd to virtualmachine
+# remove parent vhd
+# change uuid of differencing vhd
+# vboxmanage internalcommands sethduuid w7scomCore.vhd 
+# attach differencing vhd
+
+# http://superuser.com/questions/187598/how-to-open-existing-vms-in-virtualbox
+# http://www.eonlinegratis.com/2013/how-to-open-existing-vms-in-virtualbox/#sthash.6GQEUI20.dpbs
+# find /path/to/vms -name "*.vbox" -exec VBoxManage registervm {} \;

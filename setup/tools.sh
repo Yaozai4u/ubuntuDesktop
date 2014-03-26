@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# http://askubuntu.com/questions/104186/any-application-which-could-sync-pics-videos-on-ubuntu-with-picasa-web-album
+# https://wiki.gnome.org/Conduit
+# Conduit is a synchronization application for GNOME. It allows you to synchronize your files, photos, emails, contacts, notes, calendar data and any other
+#sudo apt-get install conduit
+
 
 echo " GUI for rsync"
 # http://ubuntuforums.org/showthread.php?t=1758704
@@ -162,3 +167,8 @@ sudo apt-get install -y y-ppa-manager
 #~ http://askubuntu.com/questions/222587/how-to-check-apt-get-upgrade-status-after-losing-ssh-connection
 #screen
 
+# http://www.noobslab.com/2013/12/sunflower-dual-pane-file-manager.html
+# Sunflower is Open Source, twin panel, small and highly customizable File Manager for Linux with plugins support.
+sudo add-apt-repository -y ppa:atareao/sunflower
+sudo apt-get update
+sudo apt-get install -y sunflower

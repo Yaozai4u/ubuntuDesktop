@@ -1,11 +1,21 @@
 #!/bin/bash
 
 # systemd-hostnamed[3024]: Warning: nss-myhostname is not installed. Changing the local hostname might make it unresolveable. Please install nss-myhostname!
-
 sudo apt-get install libnss-myhostname
+
+
+# http://linux.hostileweb.com/?page_id=636
+# ntpdate[]: Can't find host ntp.ubuntu.com: Name or service not known (-2)
+# cat /etc/defaults/ntpdate 
+# http://www.pool.ntp.org/zone/tw
+# /etc/ntp.conf
+sudo cp -f ../config/ntp.conf /etc
 
 echo "Disable guest"
 sudo /usr/lib/lightdm/lightdm-set-defaults -l false
+
+# to disable overlay scrollbar: default scrollbar-mode
+gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
 
 echo "install ccsm(compiz config setting manager)"
@@ -24,17 +34,7 @@ sudo apt-get install -y gparted
 echo "install indicator cpu frequency"  
 sudo apt-get install -y indicator-cpufreq
 
-echo "install Hardware Temp Monitor"
-# http://askubuntu.com/questions/30334/what-application-indicators-are-available?page=3&tab=votes#tab-top
-# https://help.ubuntu.com/community/SensorInstallHowto
-sudo apt-get install lm-sensors hddtemp
-sudo sensors-detect
 
-sudo service module-init-tools start
-# Psensor installation:
-sudo add-apt-repository ppa:jfi/ppa
-sudo apt-get update
-sudo apt-get install psensor
 
 # sudo apt-get install -y lm-sensors hddtemp psensor
 
@@ -46,6 +46,10 @@ sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install -y oracle-java8-installer
 # java -version
+
+# For Mac Style
+# http://www.noobslab.com/2013/10/mac-os-x-mbuntu-1310-pack-is-ready.html
+
 
 # http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html
 sudo add-apt-repository -y ppa:no1wantdthisname/ppa

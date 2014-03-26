@@ -25,7 +25,7 @@ sudo apt-get install -y kazam
 
 # digiKam find duplicate image
 # http://www.digikam.org/node/333
-sudo apt-get install digikam
+sudo apt-get install -y digikam
 
 
 #~ http://ubuntuhandbook.org/index.php/2013/10/install-sweethome-3d-ubuntu-1310/
@@ -58,6 +58,7 @@ sudo add-apt-repository -y ppa:fossfreedom/byzanz
 #~ WebcamStudio ppa
 sudo add-apt-repository -y ppa:webcamstudio/webcamstudio-dailybuilds
 
+# http://www.noobslab.com/2013/10/install-vlc-210-media-player-skins-in.html
 # VLC (version in Ubuntu 13.10: 2.0.8, version in the PPA: 2.1.0):
 sudo add-apt-repository -y ppa:videolan/stable-daily
 
@@ -138,8 +139,19 @@ sudo apt-get install -y byzanz
 sudo apt-get install -y webcamstudio
 
 # Still have problems
-echo "WinFF Video converter"
-sudo apt-get install -y winff libavcodec-extra-53
+# echo "WinFF Video converter"
+# sudo apt-get install -y winff libavcodec-extra-53
+
+sudo add-apt-repository -y ppa:noobslab/apps
+
+# http://www.noobslab.com/2014/01/format-junkie-converter-for-ubuntu.html
+# It converts a variety of audio and video formats, and even can convert ISOs to other disc images (in this case the CSO disc image)
+sudo apt-get install -y formatjunkie
+# http://www.noobslab.com/2014/01/curlew-multi-converter-updated-to.html
+# Curlew is multi-converter tool, it is based on ffmpeg. 
+sudo apt-get install -y curlew
+
+
 
 #~ Pinta is a Paint.NET-like image drawing and editing program 
 #~ http://ubuntuhandbook.org/index.php/category/howtos/page/32/
@@ -151,9 +163,7 @@ sudo apt-get install -y winff libavcodec-extra-53
 # http://steamcommunity.com/app/218410/discussions/0/666826069039698014/
 wget http://airdownload.adobe.com/air/lin/download/2.6/AdobeAIRInstaller.bin
 
-sudo apt-get install libgtk2.0-0:i386 libpangox-1.0-0:i386 libpangoxft-1.0-0:i386 libidn11:i386 gstreamer0.10-pulseaudio:i386 gstreamer0.10-plugins-base:i386 gstreamer0.10-plugins-good:i386 gstreamer0.10-ffmpeg:i386
-sudo apt-get install libgtk2.0-0:i386 libpangox-1.0-0:i386 libpangoxft-1.0-0:i386 libidn11:i386 libglu1-mesa:i386
-sudo apt-get install libnss3-1d:i386
+sudo apt-get install libgtk2.0-0:i386 libpangox-1.0-0:i386 libpangoxft-1.0-0:i386 libidn11:i386 libglu1-mesa:i386 gstreamer0.10-pulseaudio:i386 gstreamer0.10-plugins-base:i386 gstreamer0.10-plugins-good:i386 gstreamer0.10-ffmpeg:i386 libnss3-1d:i386
 
 # The following packages will be REMOVED:
 #   gstreamer-tools gstreamer0.10-gnonlin libappframework-java
@@ -173,8 +183,8 @@ rm AdobeAIRInstaller.bin; sudo rm /usr/lib/libgnome-keyring.so.0 /usr/lib/libgno
 sudo apt-get install gaupol
 
 # http://askubuntu.com/questions/9443/how-to-calibrate-the-monitor-on-an-ubuntu-system
-sudo apt-get install gnome-color-manager
-# http://www.notebookcheck.net/Review-Lenovo-ThinkPad-Edge-S430-Notebook.80017.0.html
+# sudo apt-get install gnome-color-manager
+# http://www.notebookcheck.net/uploads/tx_nbc2/Monitor_10.07.2012_1_02.icc
 
 
 

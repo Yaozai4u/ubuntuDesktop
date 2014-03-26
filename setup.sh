@@ -13,9 +13,6 @@ echo "Install git"
 sudo apt-get install -y git
 
 
-
-
-
 #cd $HOME
 #if [ -d ./ubuntuDesktop/ ]; then
 #	echo "Found old ubuntuDesktop and backup."
@@ -42,3 +39,7 @@ bash ./setup/finance.sh
 bash ./setup/living.sh
 bash ./setup/mobile.sh
 bash ./setup/monitoring.sh
+
+# search command in which package
+# dpkg -S $(which vboxmanage)
+

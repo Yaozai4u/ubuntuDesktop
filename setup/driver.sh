@@ -12,6 +12,15 @@ sudo apt-get install -y bumblebee bumblebee-nvidia linux-headers-generic
 #sudo apt-get update
 #sudo apt-get install -y libbsapi policykit-1-fingerprint-gui fingerprint-gui
  
+# in syslog error when change brightness: ACPI Exception: AE_AML_PACKAGE_LIMIT,
+# https://bbs.archlinux.org/viewtopic.php?id=159925
+# acpi_listen
+# https://bbs.archlinux.org/viewtopic.php?id=158775
+# acpi_osi="Windows 2009" (which corresponds to Windows 7) or even acpi_osi=linux.
+# https://bbs.archlinux.org/viewtopic.php?id=173530
+sudo sed -i 's/GRUB_CMDLINE_LINUX=""/GRUB_CMDLINE_LINUX="acpi_osi=\\"!Windows 2012\\""/g' /etc/default/grub
+grep "GRUB_CMDLINE" /etc/default/grub 
+sudo update-grub
 
 # http://ubuntuforums.org/showthread.php?t=2181534
 # http://askubuntu.com/questions/363152/brightness-issue-in-a-lenovo-thinkpad-edge-lr236w5
@@ -21,6 +30,8 @@ sudo apt-get install -y bumblebee bumblebee-nvidia linux-headers-generic
 # GRUB_CMDLINE_LINUX="acpi_osi=\"!Windows 2012\""
 # sudo sed -i 's/GRUB_CMDLINE_LINUX="acpi_osi=\\"!Windows 2012\\""/GRUB_CMDLINE_LINUX=""/g' /etc/default/grub
 # sudo update-grub
+
+
 
 sudo cp ../config/20-intel.conf /usr/share/X11/xorg.conf.d/20-intel.conf
 # http://askubuntu.com/questions/57236/unable-to-change-brightness-in-a-lenovo-laptop

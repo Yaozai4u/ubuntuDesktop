@@ -1,7 +1,7 @@
 #!/bin/bash
 # wine
 # sudo add-apt-repository -y ppa:ubuntu-wine/ppa
-
+# http://www.noobslab.com/2013/10/wine-174-has-been-released-install-in.html
 # https://help.ubuntu.com/community/PlayOnLinux
 # Fixed for chinese display
 # http://goo.gl/cPIl5e

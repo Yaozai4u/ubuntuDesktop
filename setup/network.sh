@@ -26,11 +26,30 @@ echo "Remote desktop"
 sudo apt-get install -y Remmina
 
 
+# skype
+# http://www.noobslab.com/2014/01/skype-released-new-version-install-in.html
+#sudo apt-get install skype
+# https://launchpad.net/audio-recorder
+# http://linuxg.net/how-to-install-skype-call-recorder-0-10-on-ubuntu-13-04-linux-mint-15-and-pear-os-8/
+# http://www.webupd8.org/2014/03/fix-skype-not-using-desktop-gtk-theme.html
+#sudo apt-get install gtk2-engines-murrine:i386
+
+
+#sudo apt-get install audio-recorder
+# http://ubuntuforums.org/showthread.php?t=1242958
+
+#sudo apt-get install pulseaudio pavucontrol padevchooser
+
+
+
 echo "install chrome"
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
 sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
 sudo apt-get update 
 sudo apt-get install -y google-chrome-unstable
+
+# http://stackoverflow.com/questions/11779325/installing-java-plugin-for-chrome-in-ubuntu
+sudo apt-get install -y icedtea-7-plugin
 
 # http://www.webupd8.org/2014/01/enable-hardware-acceleration-in-chrome.html
 # chrome://flags/#enable-app-list
@@ -44,11 +63,21 @@ sudo apt-get install -y wireshark
 sudo add-apt-repository ppa:graysky/utils
 
 # http://www.webupd8.org/2013/06/how-to-set-up-wireless-hotspot-access.html
-sudo add-apt-repository ppa:nilarimogard/webupd8
+sudo add-apt-repository -y ppa:nilarimogard/webupd8
+
+# jdownloader
+sudo add-apt-repository -y  ppa:jd-team/jdownloader
+# Google Drive
+# http://www.noobslab.com/2014/02/unofficial-google-drive-grive-tools.html
+# http://www.thefanclub.co.za/how-to/ubuntu-google-drive-client-grive-and-grive-tools
+sudo add-apt-repository -y ppa:thefanclub/grive-tools
 
 sudo apt-get update
 
+sudo apt-get install -y grive grive-tools
 
+# https://launchpad.net/~jd-team/+archive/jdownloader
+sudo apt-get install -y jdownloader-installer
 
 
 sudo apt-get install profile-cleaner
@@ -61,5 +90,9 @@ sudo sed -i 's/#BROWSERS=""/BROWSERS="google-chrome-unstable"/g' /etc/psd.conf
 # profile-sync-daemon parse
 # sudo service psd start
 
+#~ http://www.webupd8.org/2013/06/how-to-set-up-wireless-hotspot-access.html
+#~ http://askubuntu.com/questions/180733/how-to-setup-a-wi-fi-hotspot-access-point-mode
 
 sudo apt-get install ap-hotspot
+
+
