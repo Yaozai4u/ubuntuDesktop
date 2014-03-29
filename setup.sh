@@ -12,6 +12,8 @@ echo "Install git"
 
 sudo apt-get install -y git
 
+git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --"
+
 
 #cd $HOME
 #if [ -d ./ubuntuDesktop/ ]; then

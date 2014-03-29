@@ -7,6 +7,7 @@ sudo apt-get -y install sysstate
 
 sudo apt-get -y install nethogs
 
+sudo apt-get -y install ksystemlog
 
 echo "powertop"
 # https://wiki.archlinux.org/index.php/powertop
@@ -22,7 +23,7 @@ echo "install Hardware Temp Monitor"
 sudo apt-get install lm-sensors hddtemp
 sudo sensors-detect
 
-sudo service module-init-tools start
+sudo service module-init-tools start 
 # Psensor installation:
 sudo add-apt-repository ppa:jfi/ppa
 sudo apt-get update

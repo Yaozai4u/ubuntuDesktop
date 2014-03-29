@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# http://www.xmind.net/xmind/downloads/
+
+
 # http://askubuntu.com/questions/366438/how-to-install-google-earth-64bit-in-ubuntu-13-10-ia32-libs-dependency-error
 
 sudo apt-get install libc6-i386 libglib2.0-0:i386 libsm6:i386 \

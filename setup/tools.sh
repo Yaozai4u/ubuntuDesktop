@@ -9,6 +9,7 @@
 echo " GUI for rsync"
 # http://ubuntuforums.org/showthread.php?t=1758704
 sudo apt-get install -y grsync
+# rsync -r -t -o -v --progress --delete --partial -s /sourceFolder/ /DestFolder/
 
 echo "Disk Manager"
 sudo apt-get install -y k4dirstat

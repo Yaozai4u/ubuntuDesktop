@@ -196,4 +196,8 @@ sudo cp ../config/00-use-suspend-hybrid /etc/pm/config.d/
 
 # sudo apt-add-repository --remove
 # sudo apt-get --reinstall install  packages
+# dpkg --get-selections
+# dpkg -L packagename
 
+# http://serverfault.com/questions/478558/how-to-delete-fuse-hidden-files
+# Execute lsof dir-name/.fuse_hidden000bd8c100000185 to find out what processes are holding the file handle open.
