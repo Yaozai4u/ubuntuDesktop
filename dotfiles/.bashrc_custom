@@ -69,4 +69,6 @@ alias gx='gitx --all'
 alias gl="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 
 
+alias nvidia-settings='optirun nvidia-settings -c :8'
 
+alias logerr="grep -Fn '(EE' /var/log/*"

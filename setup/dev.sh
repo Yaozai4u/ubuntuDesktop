@@ -49,6 +49,7 @@ sudo apt-get install nautilus-compare
 sudo add-apt-repository ppa:webupd8team/sublime-text-3
 sudo apt-get update
 sudo apt-get install sublime-text-installer
+# ctrl+shift+p (or cmd+shift+p): ww (word wrap) toggle.
 
 # https://sublime.wbond.net/
 # Package Control 新網站上線，找 Package 更方便了，每個 Package 還有漂亮的下載統計圖表！

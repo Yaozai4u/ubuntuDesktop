@@ -62,6 +62,13 @@ sudo apt-get install -y preload
 
 sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/*.desktop
 
+
+# http://www.webupd8.org/2014/04/get-better-linux-desktop-performance.html
+# https://github.com/poelzi/ulatencyd/wiki
+# is a daemon which constantly optimizes the Linux Kernel for best user experience. 
+sudo apt-get install  -y ulatency ulatencyd
+# ulatency --gui
+
 # https://sites.google.com/site/easylinuxtipsproject/clean
 
 # Defrag file system
@@ -103,4 +110,13 @@ sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/*.de
 # cat /proc/enhanceio/cache_root/stats | grep nr_dirty
 #sudo eio_cli clean -c cache_root
 # sudo eio_cli delete -c cache_root
-
+# http://www.cyberciti.biz/faq/add-remove-list-linux-kernel-modules/
+# https://answers.launchpad.net/ubuntu/+source/dkms/+question/185568
+# dkms status
+# sudo dkms remove enhanceio/0+git20130705  --all
+# $ dkms status
+# acpi-call, 20130623, 3.11.0-19-generic, x86_64: installed
+# bbswitch, 0.7, 3.11.0-19-generic, x86_64: installed
+# nvidia-304, 304.88, 3.11.0-19-generic, x86_64: installed
+# vboxhost, 4.3.10, 3.11.0-19-generic, x86_64: installed
+# webcamstudio, 0.65, 3.11.0-19-generic, x86_64: installed
