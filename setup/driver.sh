@@ -12,7 +12,7 @@ sudo apt-get install -y bumblebee linux-headers-generic
 sudo add-apt-repository -y ppa:xorg-edgers/ppa 
 sudo apt-get update
 # sudo apt-get remove bumblebee-nvidia nvidia-current nvidia-settings
-sudo apt-get install -y bumblebee-nvidia nvidia-331 nvidia-settings-319 
+sudo apt-get install -y bumblebee-nvidia nvidia-337 nvidia-settings-319 
 # Selecting 01:00:0 as discrete nvidia card. If this is incorrect,
 # edit the BusID line in /etc/bumblebee/xorg.conf.nvidia
 # $ lspci | egrep 'VGA|3D'
@@ -41,16 +41,16 @@ grep nouveau /etc/modprobe.d/*
 # Driver=nvidia
 sudo sed -i 's/Driver=$/Driver=nvidia/g' /etc/bumblebee/bumblebee.conf
 # KernelDriver=nvidia-319-updates
-sudo sed -i 's/KernelDriver=nvidia-current/KernelDriver=nvidia-334/g' /etc/bumblebee/bumblebee.conf
+sudo sed -i 's/KernelDriver=nvidia-current/KernelDriver=nvidia-337/g' /etc/bumblebee/bumblebee.conf
 
 # LibraryPath=/usr/lib/nvidia-319-updates:/usr/lib32/nvidia-319-updates
 
-sudo sed -i 's/LibraryPath=\/usr\/lib\/nvidia-current:\/usr\/lib32\/nvidia-current/LibraryPath=\/usr\/lib\/nvidia-334:\/usr\/lib32\/nvidia-334/g' /etc/bumblebee/bumblebee.conf
+sudo sed -i 's/LibraryPath=\/usr\/lib\/nvidia-current:\/usr\/lib32\/nvidia-current/LibraryPath=\/usr\/lib\/nvidia-337:\/usr\/lib32\/nvidia-337/g' /etc/bumblebee/bumblebee.conf
 # XorgModulePath=/usr/lib/nvidia-319-updates/xorg,/usr/lib/xorg/modules
-sudo sed -i 's/XorgModulePath=\/usr\/lib\/nvidia-current/XorgModulePath=\/usr\/lib\/nvidia-334/g' /etc/bumblebee/bumblebee.conf
+sudo sed -i 's/XorgModulePath=\/usr\/lib\/nvidia-current/XorgModulePath=\/usr\/lib\/nvidia-337/g' /etc/bumblebee/bumblebee.conf
 
 
-# sudo sed -i 's/nvidia-331/nvidia-334/g' /etc/bumblebee/bumblebee.conf
+# sudo sed -i 's/nvidia-334/nvidia-337/g' /etc/bumblebee/bumblebee.conf
 # https://bbs.archlinux.org/viewtopic.php?id=166057
 ls /usr/lib/xorg/modules/drivers
 # http://ubuntuforums.org/showthread.php?t=2143882

@@ -5,6 +5,8 @@
 # Conduit is a synchronization application for GNOME. It allows you to synchronize your files, photos, emails, contacts, notes, calendar data and any other
 #sudo apt-get install conduit
 
+# Not working in saucy
+# sudo apt-get install -y ardesia
 
 echo " GUI for rsync"
 # http://ubuntuforums.org/showthread.php?t=1758704
@@ -54,7 +56,8 @@ sudo apt-get install -y Terminator
 # Ctrl-Shift-W: will close the view where the focus is on.
 # Ctrl-Shift-Q: will exit terminator.
 # F11: will make terminator go fullscreen.
-
+# gsettings set org.gnome.desktop.default-applications.terminal exec 'terminator'
+# use ccsm change to terminator
 
 
 
@@ -70,7 +73,7 @@ echo "Keyboard Status Monitor (key-mon)"
 
 # Description: Utility to show live keyboard and mouse status for teaching and screencasts
 # Website: http://code.google.com/p/key-mon/
-sudo apt-get install key-mon
+sudo apt-get install -y key-mon
 
 
 # echo "Debian Package Search"
@@ -79,7 +82,15 @@ sudo apt-get install key-mon
 
 # pretty good Bulk Rename tool
 
-sudo apt-get install thunar
+sudo apt-get install -y thunar
+
+
+# http://www.makeuseof.com/tag/delete-duplicate-files-quickly-with-these-tools/
+# http://askubuntu.com/questions/59107/find-duplicate-files-and-folders-and-move-these-to-a-different-folder
+# fslint (File System Lint)
+sudo apt-get install -y fdupes
+# If you insist on a graphical user interface you might want to have a look at fslint Install fslint / 
+sudo apt-get install -y fslint
 
 
 echo "add other ppa"

@@ -14,6 +14,10 @@
 sudo apt-get install -y diffuse
 
 
+
+sudo apt-get install -y mercurial
+
+
 # Geany
 
 # Description: Fast and lightweight IDE
@@ -40,7 +44,7 @@ sudo ldconfig -v |grep python
 sudo apt-get install nautilus-compare
 # http://askubuntu.com/questions/287430/nautilus-compare-meld-integration-with-nautilus-and-other-nautilus-actions-ext
 # sudo ln -s /usr/lib/libpython2.7.so.1 /usr/lib/libpython2.7.so
-# ldd /usr/lib/nautilus/extensions-3.0/libnautilus-python.so  |grep python
+ldd /usr/lib/nautilus/extensions-3.0/libnautilus-python.so  |grep python
 # sudo ldconfig
 
 
@@ -87,7 +91,18 @@ cp ../scripts/vdimount /usr/bin/vdimount
 # change uuid of differencing vhd
 # vboxmanage internalcommands sethduuid w7scomCore.vhd 
 # attach differencing vhd
+# http://www.maketecheasier.com/shrink-your-virtualbox-vm/
 
+# The best tool to use for NTFS under a Windows guest OS
+# sdelete -z C:
+# Linux, a good utility for ext2, ext3 and ext4 file systems is zerofree
+# mount -n -o remount,ro -t ext2 /dev/sda1 /
+# mount -n -o remount,ro -t ext2 /dev/sdb1 /var
+# zerofree /dev/sda1
+# zerofree /dev/sdb1
+
+# VBoxManage modifyvdi xxxx.vdi compact
+# vboxmanage showhdinfo file.vhd
 # http://superuser.com/questions/187598/how-to-open-existing-vms-in-virtualbox
 # http://www.eonlinegratis.com/2013/how-to-open-existing-vms-in-virtualbox/#sthash.6GQEUI20.dpbs
 # find /path/to/vms -name "*.vbox" -exec VBoxManage registervm {} \;

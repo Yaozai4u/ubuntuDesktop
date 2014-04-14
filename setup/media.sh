@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# https://secure.flickr.com/groups/hugin/discuss/72157623472700076/
+
+
 echo " Install Codecs"
 # http://www.unixmen.com/top-things-installing-ubuntu-13-10/
 sudo apt-get install -y gstreamer0.10-plugins-ugly gstreamer0.10-ffmpeg libxine1-ffmpeg gxine mencoder libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 gstreamer1.0-libav
@@ -12,7 +15,15 @@ sudo apt-get install -y cheese
 
 echo "Image gimp"
 # http://www.unixmen.com/top-things-installing-ubuntu-13-10/
+# http://www.webupd8.org/2012/05/download-gimp-28-script-fus-pack-more.html
 sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras
+
+
+# /usr/share/gimp/2.0/scripts
+# sudo wget http://www.shallowsky.com/software/pandora/pandora-combine-0.9.3.scm -O /usr/share/gimp/2.0/scripts/pandora-combine-0.9.3.scm
+# http://hugin.sourceforge.net/tutorials/index.shtml
+# 360x180 panoramas
+# https://sites.google.com/site/carpebble/home
 
 echo "gthumb"
 sudo apt-get install -y gthumb
@@ -26,6 +37,8 @@ sudo apt-get install -y kazam
 # digiKam find duplicate image
 # http://www.digikam.org/node/333
 sudo apt-get install -y digikam
+
+sudo apt-get install -y audacity
 
 
 #~ http://ubuntuhandbook.org/index.php/2013/10/install-sweethome-3d-ubuntu-1310/
@@ -89,8 +102,13 @@ sudo add-apt-repository -y ppa:ffdiaporamateam/stable
 # sudo add-apt-repository -y ppa:stebbins/handbrake-snapshots 
 #- See more at: http://www.unixmen.com/how-to-encode-moviesvideos-using-handbrake/#sthash.pvVYfmaH.dpuf
 
+# http://www.webupd8.org/2012/01/smplayer-070-brings-youtube-and.html
+sudo add-apt-repository -y ppa:rvm/smplayer
+
+
 sudo apt-get update
 
+sudo apt-get install -y smplayer
 
 # sudo apt-get install -y handbreak-gtk
 
@@ -106,7 +124,7 @@ sudo sed -i 's/Exec=\/usr\/bin\/vlc %U/Exec=\/usr\/bin\/vlc %F/g' /usr/share/app
 
 sudo apt-get install -y ffdiaporama ffdiaporama-openclipart ffdiaporama-texturemate
 
-sudo apt-get install -y avidemux2.6-qt
+# sudo apt-get install -y avidemux2.6-qt
 
 
 sudo apt-get install -y qgifer

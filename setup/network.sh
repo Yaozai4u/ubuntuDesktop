@@ -12,6 +12,8 @@ sudo apt-get install -y flashplugin-installer
 echo "install qbittorrent"
 sudo apt-get install -y qbittorrent
 
+# echo "Bt Resource Search" 
+# sudo apt-get install -y btresourcesearch
 
 echo "install putty"
 sudo apt-get install -y putty
@@ -24,6 +26,8 @@ sudo apt-get install -y fping
 
 echo "Remote desktop"
 sudo apt-get install -y Remmina
+
+
 
 
 # skype
@@ -72,7 +76,15 @@ sudo add-apt-repository -y  ppa:jd-team/jdownloader
 # http://www.thefanclub.co.za/how-to/ubuntu-google-drive-client-grive-and-grive-tools
 sudo add-apt-repository -y ppa:thefanclub/grive-tools
 
+# http://www.webupd8.org/2011/11/how-to-integrate-google-calendar-with.html
+# www.webupd8.org/2013/11/google-calendar-indicator-020-released.html
+
+
+sudo add-apt-repository -y ppa:atareao/atareao
+
 sudo apt-get update
+
+sudo apt-get install -y calendar-indicator
 
 sudo apt-get install -y grive grive-tools
 

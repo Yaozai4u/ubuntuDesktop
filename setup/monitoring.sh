@@ -54,3 +54,8 @@ wget http://downloads.sourceforge.net/project/linssid/Linssid_2.1/linssid_2.1-1_
  # Conky is a free, light-weight system monitor for X, that displays any information on your desktop.
 
  # http://www.noobslab.com/2013/04/panel-indicators-collection-for-ubuntu.html
+
+#http://www.webupd8.org/2014/04/i7z-monitor-intel-i7-i5-and-i3.html 
+# i7z is a tool that reports Intel Core i7, i5 and i3 CPU information about Turbo Boost, per core CPU frequencies, multipliers, temperature as well as times spent in the C0/C1/C3/C6/C7 states, all in real time.
+
+sudo apt-get install -y i7z-gui

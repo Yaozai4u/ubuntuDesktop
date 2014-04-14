@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# http://jwigley.com/2012/04/27/making-ubuntu-unity-look-beautiful-by-enabling-transparency/
+
+
 # systemd-hostnamed[3024]: Warning: nss-myhostname is not installed. Changing the local hostname might make it unresolveable. Please install nss-myhostname!
 sudo apt-get install libnss-myhostname
 
@@ -14,12 +17,20 @@ sudo cp -f ../config/ntp.conf /etc
 echo "Disable guest"
 sudo /usr/lib/lightdm/lightdm-set-defaults -l false
 
+# Enable the key combination Ctrl+Alt+Backspace
+# https://sites.google.com/site/easylinuxtipsproject/first#TOC-Enable-the-key-combination-Ctrl-Alt-Backspace
+# Ctrl+Alt+Backspace should reboot only the desktop and throw you back into the login window.
+sudo sed -i 's/XKBOPTIONS=""/XKBOPTIONS="terminate:ctrl_alt_bksp"/g' /etc/default/keyboard
+
 # to disable overlay scrollbar: default scrollbar-mode
 gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
-
+# http://askubuntu.com/questions/184738/is-it-possible-to-make-all-currently-open-windows-minimize-whenever-i-open-a-ne
 echo "install ccsm(compiz config setting manager)"
-sudo apt-get install -y compizconfig-settings-manager compiz-plugins-extra
+# dconf reset -f /org/compiz/
+# setsid compiz --replace
+# http://www.webupd8.org/2012/10/how-to-reset-compiz-and-unity-in-ubuntu.html
+sudo apt-get install -y compizconfig-settings-manager compiz-plugins-extra compiz-gnome dconf-tools
 
 echo "install package manager: synaptic"
 sudo apt-get iccsnstall -y synaptic

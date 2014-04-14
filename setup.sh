@@ -29,8 +29,19 @@ git config --global alias.lg "log --color --graph --pretty=format:'%Cred%h%Crese
 #ln-sb ubuntuDesktop/dotfiles/.bashrc .
 #ln -sb ubuntuDesktop/dotfiles/.bashrc_custom .
 
-bash ./setup/media.sh
-bash ./setup/tools.sh
+
+echo Install Media Apps?(y/n)
+read $YN
+if [[ "$YN" -eq "y" || "Y" ]]; then
+	#statements
+	bash ./setup/media.sh
+fi
+echo Install Other Tools?(y/n)
+read $YN
+if [[ "$YN" -eq "y" || "Y" ]]; then
+	#statements
+	bash ./setup/tools.sh
+fi
 bash ./setup/media.sh
 bash ./setup/network.sh
 bash ./setup/driver.sh

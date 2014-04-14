@@ -27,7 +27,7 @@ PS2="$HC$FYEL-> $RS"
 
 
 # 2.2) Listing, directories, and motion
-alias ll="ls -alrtF --color"
+alias ll="ls -alrtFh --color"
 alias la="ls -A"
 alias l="ls -CF"
 alias dir='ls --color=auto --format=vertical'
@@ -37,7 +37,7 @@ alias ..='cd ..'
 alias ...='cd ..;cd ..'
 alias md='mkdir'
 alias cl='clear'
-alias du='du -ch --max-depth=1'
+alias du='du -ch -d=1'
 alias treeacl='tree -A -C -L 2'
 
 
@@ -72,3 +72,5 @@ alias gl="git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
 alias nvidia-settings='optirun nvidia-settings -c :8'
 
 alias logerr="grep -Fn '(EE' /var/log/*"
+
+alias fsckdos="sudo dosfsck -w -r -l -a -v -t"

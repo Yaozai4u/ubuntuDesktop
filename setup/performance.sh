@@ -46,9 +46,10 @@ sudo apt-get autoremove unity-lens-music unity-lens-photos unity-lens-gwibber un
 
 gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
 
-
+# https://sites.google.com/site/easylinuxtipsproject/first#TOC-Decrease-the-swap-use-very-important-
 echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
 
+echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
 
 sudo apt-get install -y bum
 
@@ -60,16 +61,20 @@ sudo apt-get install -y preload
 
 
 
-sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/*.desktop
+sudo sed -i 's/NoDisplay=true/NoDisplay=false/g' /etc/xdg/autostart/*.desktop
 
 
 # http://www.webupd8.org/2014/04/get-better-linux-desktop-performance.html
 # https://github.com/poelzi/ulatencyd/wiki
 # is a daemon which constantly optimizes the Linux Kernel for best user experience. 
-sudo apt-get install  -y ulatency ulatencyd
+# sudo apt-get install  -y ulatency ulatencyd
 # ulatency --gui
 
+
 # https://sites.google.com/site/easylinuxtipsproject/clean
+sudo apt-get install -y gnome-session-fallback
+# GNOME Fallback (No effects).
+
 
 # Defrag file system
 # sudo e4defrag -c /

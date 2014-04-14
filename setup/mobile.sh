@@ -11,6 +11,20 @@ sudo apt-get install libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5
 # USE 'android update adb' TO GENERATE.
 # 1 USB VENDOR ID PER LINE.
 # 0x2717
+cp ../config/adb_usb.ini ~/.android/
+# http://bernaerts.dyndns.org/linux/74-ubuntu/245-ubuntu-precise-install-android-sdk
+adb version
+# Android Debug Bridge version 1.0.31
+adb devices
+# If your adb version is too old you'll get :
+# # adb devices
+# List of devices attached
+# xxxxxxxxxxxxxxx          offline
+
+# When you will plug your Android device for the first time, it will display a message asking you to allow connexion to your computer as a trusted computer.
+
+# You need to validate the message and to select the permanent checkbox.
+
 #$ adb devices
 #List of devices attached 
 # 4e53a45d	device

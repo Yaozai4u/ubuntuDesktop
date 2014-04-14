@@ -10,6 +10,13 @@
 # Tools > PlayOnLinux console
 # POL_Config_Write NO_FSCHECK TRUE
 
+wget -q "http://deb.playonlinux.com/public.gpg" -O - | sudo apt-key add -
+sudo sh -c 'echo "deb http://deb.playonlinux.com/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/playonlinux.list'
+# echo "deb http://deb.playonlinux.com/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/playonlinux.list
+
+sudo apt-get update 
+
+
 sudo apt-get install -y playonlinux
 
 
@@ -19,3 +26,8 @@ sudo apt-get install -y playonlinux
 
 sudo apt-get install-y p7zip-full
 sudo apt-get install -y mdbtools mdbtools-gmdb
+
+# http://askubuntu.com/questions/147228/how-to-repair-a-corrupted-fat32-file-system
+# http://explainshell.com/explain?cmd=sudo+dosfsck+-w+-r+-l+-a+-v+-t+%2Fdev%2Fsdc1
+# sudo dosfsck -w -r -l -a -v -t /dev/sdc1
+# you can find your pen drive by typing mount
