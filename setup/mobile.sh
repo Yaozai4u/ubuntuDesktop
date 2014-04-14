@@ -30,6 +30,24 @@ adb devices
 # 4e53a45d	device
 
 
+
+
+# http://www.androidcentral.com/installing-android-sdk-windows-mac-and-linux-tutorial
+
+sudo apt-get install -y lib32ncurses5 lib32stdc++6
+
+# https://share.coursera.org/wiki/index.php/Android-001:Main
+sudo cp ../config/51-android.rules /etc/udev/rules.d/
+
+# http://stackoverflow.com/questions/17626663/can-i-connect-any-android-device-with-ubuntu
+# Also for some noname devices you might need to add their VendorID to the ~/.android/adb_usb.ini. Just run the following commands with the device plugged in:
+
+# find -L /sys/bus/usb/devices -maxdepth 2 -path "*/modalias" -printf "%h\t" -exec cat {} \; | awk -F: '/icFFisc42ip01/ {print $1}' | xargs -i cat {}/idVendor | awk '{print"\n0x"$1}' >>~/.android/adb_usb.ini
+# grep ^0x ~/.android/adb_usb.ini | sort -u | sponge ~/.android/adb_usb.ini
+
+
+
+
 #no need to do these
 
 #- http://abhinavasblog.blogspot.tw/2013/10/working-with-ubuntu-1304-and-1310-java.html
