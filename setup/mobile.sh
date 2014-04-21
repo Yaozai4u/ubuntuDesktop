@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# http://www.tryfeem.com/
+# http://www.makeuseof.com/tag/installed-ubuntu-on-your-laptop-6-tweaks-youll-need/
+# http://www.makeuseof.com/tag/transfer-files-quickly-across-devices-using-feem/
+# unzip Feem_v2.9.2.1_Installer_For_Linux_64bit.zip
+# cd Feem_v2.9.2.1_Installer_For_Linux_64bit
+# ./install_feem.run
+
 echo "adb device"
 # http://www.vogella.com/articles/Android/article.html
 
@@ -29,11 +36,14 @@ adb devices
 #List of devices attached 
 # 4e53a45d	device
 
-
-
+# http://android.stackexchange.com/questions/41368/how-can-i-directly-wirelessly-copy-files-between-galaxy-s3-and-ubuntu
+ # ES File Explorer File Manager  & Sftp
+ # https://help.ubuntu.com/12.04/serverguide/openssh-server.html
+sudo apt-get install -y openssh-server
+# http://android.stackexchange.com/questions/9905/is-there-some-ssh-server-for-android
 
 # http://www.androidcentral.com/installing-android-sdk-windows-mac-and-linux-tutorial
-
+# https://help.ubuntu.com/community/AndroidSDK
 sudo apt-get install -y lib32ncurses5 lib32stdc++6
 
 # https://share.coursera.org/wiki/index.php/Android-001:Main

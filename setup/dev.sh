@@ -106,3 +106,9 @@ cp ../scripts/vdimount /usr/bin/vdimount
 # http://superuser.com/questions/187598/how-to-open-existing-vms-in-virtualbox
 # http://www.eonlinegratis.com/2013/how-to-open-existing-vms-in-virtualbox/#sthash.6GQEUI20.dpbs
 # find /path/to/vms -name "*.vbox" -exec VBoxManage registervm {} \;
+
+
+# http://askubuntu.com/questions/365850/12-04-virtualbox-not-seeing-any-usb-devices-in-the-usb-filters-settings
+
+# http://doc.ubuntu-fr.org/virtualbox#les_ports_usb_ne_fonctionnent_pas
+sudo usermod -G vboxusers -a $USER

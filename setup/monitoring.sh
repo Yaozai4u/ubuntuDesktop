@@ -25,6 +25,7 @@ sudo sensors-detect
 
 sudo service module-init-tools start 
 # Psensor installation:
+# http://www.webupd8.org/2012/07/monitor-hardware-temperature-in-ubuntu.html
 sudo add-apt-repository ppa:jfi/ppa
 sudo apt-get update
 sudo apt-get install psensor
@@ -57,5 +58,5 @@ wget http://downloads.sourceforge.net/project/linssid/Linssid_2.1/linssid_2.1-1_
 
 #http://www.webupd8.org/2014/04/i7z-monitor-intel-i7-i5-and-i3.html 
 # i7z is a tool that reports Intel Core i7, i5 and i3 CPU information about Turbo Boost, per core CPU frequencies, multipliers, temperature as well as times spent in the C0/C1/C3/C6/C7 states, all in real time.
-
+sudo apt-get install -y i7z
 sudo apt-get install -y i7z-gui

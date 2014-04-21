@@ -1,11 +1,17 @@
 #!/bin/bash
 
 # https://secure.flickr.com/groups/hugin/discuss/72157623472700076/
+# http://www.webupd8.org/2014/02/sound-switcher-ubuntu-indicator.html
+
+
 
 
 echo " Install Codecs"
 # http://www.unixmen.com/top-things-installing-ubuntu-13-10/
-sudo apt-get install -y gstreamer0.10-plugins-ugly gstreamer0.10-ffmpeg libxine1-ffmpeg gxine mencoder libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 gstreamer1.0-libav
+# http://www.noobslab.com/2014/04/thingstweaks-to-do-after-install-of.html
+sudo apt-get install -y gstreamer0.10-plugins-ugly libxine1-ffmpeg gxine mencoder libdvdread4 totem-mozilla icedax tagtool easytag id3tool lame nautilus-script-audio-convert libmad0 mpg321 libavcodec-extra
+# Enable DVD Playback:
+sudo /usr/share/doc/libdvdread4/install-css.sh
 
 echo "install ubuntu restricted extras mp3 playback decoding."
 sudo apt-get install -y ubuntu-restricted-extras
@@ -31,6 +37,7 @@ sudo apt-get install -y gthumb
 echo "Creating Panoramas"
 #pandora
 
+
 echo "Kazam Screen caster"
 sudo apt-get install -y kazam
 
@@ -54,11 +61,6 @@ sudo apt-get install -y sweethome3d
 # sudo apt-get install -y gnash
 # sudo sed -i 's/x-shockwave-flash=totem.desktop/x-shockwave-flash=gnash.desktop/g' /etc/gnome/defaults.list
 
-
-
-# http://www.noobslab.com/2013/03/curlew-multi-converter-for-ubuntu.html
-# Curlew is multi-converter tool, it is based on ffmpeg. 
-# sudo apt-get install curlew
 
 #~ Other ppa
 echo "Install Slow motion video Editor"
@@ -98,17 +100,52 @@ sudo add-apt-repository -y ppa:rebuntu16/avidemux+unofficial
 sudo add-apt-repository -y ppa:ffdiaporamateam/stable
 
 
-# This isn't a converter. It is an encoder. You can only rip bluray or dvd videos with this tool. 
-# sudo add-apt-repository -y ppa:stebbins/handbrake-snapshots 
-#- See more at: http://www.unixmen.com/how-to-encode-moviesvideos-using-handbrake/#sthash.pvVYfmaH.dpuf
 
+# http://www.enqlu.com/2014/04/how-to-install-smplayer-1430-in-ubuntu.html
 # http://www.webupd8.org/2012/01/smplayer-070-brings-youtube-and.html
 sudo add-apt-repository -y ppa:rvm/smplayer
 
 
-sudo apt-get update
+# http://www.webupd8.org/2013/06/simplescreenrecorder-powerful-screen.html
+sudo add-apt-repository -y ppa:maarten-baert/simplescreenrecorder
 
-sudo apt-get install -y smplayer
+# 15: Enable H.264 support for Firefox:
+sudo add-apt-repository -y ppa:mc3man/trusty-media
+
+
+# http://www.enqlu.com/2014/04/how-to-install-pipelight-on-ubuntu-1404.html
+# With Pipelight you can use services such as Maxdome, Netflix and others. Pipelight lets you use Microsoft Silverlight, Widevine, and more with native Linux web browsers.
+
+# This isn't a converter. It is an encoder. You can only rip bluray or dvd videos with this tool. 
+# sudo add-apt-repository -y ppa:stebbins/handbrake-snapshots 
+#- See more at: http://www.unixmen.com/how-to-encode-moviesvideos-using-handbrake/#sthash.pvVYfmaH.dpuf
+# http://askubuntu.com/questions/302759/vaapi-not-working-in-ubuntu-13-04
+ sudo add-apt-repository -y  ppa:sander-vangrieken/vaapi
+ 
+
+
+ sudo apt-get update
+ 
+
+
+
+
+ sudo apt-get install -y mplayer-vaapi
+
+
+
+sudo apt-get install -y gstreamer0.10-ffmpeg
+
+# Ubuntu 64bit: if you want to record 32bit games, make sure you also install simplescreenrecorder-lib:i386:
+sudo apt-get install -y simplescreenrecorder simplescreenrecorder-lib:i386
+
+
+# http://www.webupd8.org/2010/10/use-mplayer-with-vaapi-support-hardware.html
+# http://askubuntu.com/questions/302759/vaapi-not-working-in-ubuntu-13-04
+sudo apt-get install -y  smplayer smtube smplayer-themes smplayer-skins
+# Option tab > Preferences, on the Video tab > General Video > Output driver set the video output driver to "vaapi"
+# http://www.webupd8.org/2010/10/use-mplayer-with-vaapi-support-hardware.html
+
 
 # sudo apt-get install -y handbreak-gtk
 
@@ -116,8 +153,10 @@ sudo apt-get install -y smplayer
 # OpenShot Video Editor is a free, open-source video editor
 sudo apt-get install -y openshot openshot-doc
 
+# http://askubuntu.com/questions/302759/vaapi-not-working-in-ubuntu-13-04
+sudo apt-get install -y vlc vlc-plugin-pulse mozilla-plugin-vlc
+# Tools > Preferences > Input & Codecs > Enable Use GPU Accelerated decoding
 
-sudo apt-get install -y vlc
 # http://crunchbang.org/forums/viewtopic.php?id=7292
 # autoload the subtitles
 sudo sed -i 's/Exec=\/usr\/bin\/vlc %U/Exec=\/usr\/bin\/vlc %F/g' /usr/share/applications/vlc.desktop

@@ -1,4 +1,6 @@
 #!/bin/bash
+
+
 # wine
 # sudo add-apt-repository -y ppa:ubuntu-wine/ppa
 # http://www.noobslab.com/2013/10/wine-174-has-been-released-install-in.html
@@ -10,17 +12,29 @@
 # Tools > PlayOnLinux console
 # POL_Config_Write NO_FSCHECK TRUE
 
+
+# http://www.noobslab.com/2014/01/playonlinux-422-available-for.html
+
+
+# sudo add-apt-repository ppa:noobslab/apps
+# sudo apt-get update
+# sudo apt-get install playonlinux
+
 wget -q "http://deb.playonlinux.com/public.gpg" -O - | sudo apt-key add -
 sudo sh -c 'echo "deb http://deb.playonlinux.com/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/playonlinux.list'
 # echo "deb http://deb.playonlinux.com/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/playonlinux.list
 
-sudo apt-get update 
+# http://www.noobslab.com/2013/12/winehq-178-has-been-released-install-in.html
+
+sudo add-apt-repository -y ppa:ubuntu-wine/ppa
+sudo apt-get update
+sudo apt-get install -y wine1.7 winetricks
 
 
 sudo apt-get install -y playonlinux
 
-
-
+# http://askubuntu.com/questions/86452/how-would-i-install-picasa-3-9/139842#139842
+# https://bugs.launchpad.net/ubuntu/+source/wine/+bug/971221
 #~ http://svaksha.com/post/2010/Extract-.msi-archive-format-on-Ubuntu
 #~ Extract .msi archive format on Ubuntu
 

@@ -41,6 +41,15 @@ sudo apt-get install -y gufw
 
 echo "install keepass2"
 sudo apt-get install -y keepass2
+# http://www.webupd8.org/2013/05/keepass-2-appindicator-extension-for.html
+
+sudo add-apt-repository -y ppa:dlech/keepass2-plugins
+sudo apt-get update
+sudo apt-get install -y keepass2-plugin-application-indicator
+
+# To also install the Unity AppMenu plugin for KeePass 2, use the following command (assuming you've already added the PPA using the first two commands above):
+sudo apt-get install -y keepass2-plugin-application-menu
+
 
 # echo "nautilus open terminal"
 # sudo apt-get install -y nautilus-open-terminal
@@ -92,6 +101,10 @@ sudo apt-get install -y fdupes
 # If you insist on a graphical user interface you might want to have a look at fslint Install fslint / 
 sudo apt-get install -y fslint
 
+# LibreOffice tweaks
+# LibreOffice sidebar, simply select View > Sidebar from the LibreOffice menu.
+# monochrome icon set,
+# sudo apt-get install libreoffice-style-sifr
 
 echo "add other ppa"
 
@@ -120,6 +133,9 @@ sudo add-apt-repository -y ppa:tualatrix/ppa
 
 sudo add-apt-repository -y ppa:shutter/ppa
 # http://askubuntu.com/questions/252717/how-to-make-shutter-as-the-default-screenshot-tool
+# add key custom shortcut
+# http://shutter-project.org/faq-help/set-shutter-as-the-default-screenshot-tool/
+# https://help.ubuntu.com/community/KeyboardShortcuts 
 # for selection  Shift+F11
 # shutter -s 
 
@@ -184,3 +200,27 @@ sudo apt-get install -y y-ppa-manager
 sudo add-apt-repository -y ppa:atareao/sunflower
 sudo apt-get update
 sudo apt-get install -y sunflower
+
+# http://www.webupd8.org/2013/10/install-nemo-with-unity-patches-and.html
+sudo add-apt-repository -y ppa:webupd8team/nemo
+sudo apt-get update
+sudo apt-get install -y nemo nemo-fileroller nemo-compare nemo-rabbitvcs nemo-media-columns nemo-pastebin nemo-seahorse nemo-share nemo-terminal
+
+# Optional: Set Nemo as the default file manager
+# gsettings set org.gnome.desktop.background show-desktop-icons false
+# If you change your mind and want to use Nautilus for drawing the desktop icons instead of Nemo, use the commands below:
+# gsettings set org.nemo.desktop show-desktop-icons false
+# gsettings set org.gnome.desktop.background show-desktop-icons true
+
+# Set Nemo as the default file manager (replacing Nautilus) by running the following command:
+# xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+# Revert the changes
+# If you want to revert the changes and set Nautilus back as the default file manager, firstly let Nautilus draw the desktop icons:
+# gsettings set org.gnome.desktop.background show-desktop-icons true
+
+# Then, set Nautilus as the default file manager:
+# xdg-mime default nautilus.desktop inode/directory application/x-gnome-saved-search
+
+# Next, remove Nemo (including all the installed Nemo extensions) and the WebUpd8 Nemo PPA:
+# sudo apt-get remove nemo nemo-*
+# sudo rm /etc/apt/sources.list.d/webupd8team-nemo-*.list

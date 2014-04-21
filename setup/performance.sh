@@ -1,11 +1,14 @@
 #!/bin/bash
+# http://followthegeeks.com/compiz-is-consuming-too-much-cpu-heres-the-solution/
+# uncheck 「Sync To VBlank」. you might want to select 「Fast」
+
 
 # https://sites.google.com/site/easylinuxtipsproject/speed
 # http://www.hecticgeek.com/2012/06/few-things-to-speed-up-ubuntu/
 # http://askubuntu.com/questions/2194/how-can-i-improve-overall-system-performance?page=1&tab=votes#tab-top
 # http://www.hecticgeek.com/2013/05/using-preload-ubuntu-13-04/
 
-
+# http://www.linuxatemyram.com/
 
 
 # HOWTO: Tweak your ext3 filesystem for a performance boost

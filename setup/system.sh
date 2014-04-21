@@ -6,6 +6,18 @@
 # systemd-hostnamed[3024]: Warning: nss-myhostname is not installed. Changing the local hostname might make it unresolveable. Please install nss-myhostname!
 sudo apt-get install libnss-myhostname
 
+# http://www.noobslab.com/2014/04/thingstweaks-to-do-after-install-of.html?m=1
+ # Disable online searches from dash:
+# https://fixubuntu.com/fixubuntu.sh
+../script/fixubuntu.sh
+
+
+https://developers.google.com/speed/public-dns/docs/using
+# http://askubuntu.com/questions/196022/why-nslookup-result-always-comes-from-server-127-0-0-1
+grep dns /etc/NetworkManager/NetworkManager.conf
+sudo sed -i 's/^dns=dnsmasq/#dns=dnsmasq/g' /etc/NetworkManager/NetworkManager.conf
+grep dns /etc/NetworkManager/NetworkManager.conf
+sudo restart network-manager
 
 # http://linux.hostileweb.com/?page_id=636
 # ntpdate[]: Can't find host ntp.ubuntu.com: Name or service not known (-2)
@@ -25,6 +37,9 @@ sudo sed -i 's/XKBOPTIONS=""/XKBOPTIONS="terminate:ctrl_alt_bksp"/g' /etc/defaul
 # to disable overlay scrollbar: default scrollbar-mode
 gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
+ # Enable recursive search for Nautilus:
+ gsettings set org.gnome.nautilus.preferences enable-interactive-search false
+
 # http://askubuntu.com/questions/184738/is-it-possible-to-make-all-currently-open-windows-minimize-whenever-i-open-a-ne
 echo "install ccsm(compiz config setting manager)"
 # dconf reset -f /org/compiz/
@@ -33,7 +48,13 @@ echo "install ccsm(compiz config setting manager)"
 sudo apt-get install -y compizconfig-settings-manager compiz-plugins-extra compiz-gnome dconf-tools
 
 echo "install package manager: synaptic"
-sudo apt-get iccsnstall -y synaptic
+sudo apt-get install -y synaptic
+
+# http://www.webupd8.org/2013/06/synapse-indicator-new-search.html
+# sudo add-apt-repository ppa:elementary-os/unstable-upstream
+# sudo apt-get update
+# sudo apt-get install indicator-synapse
+
 
 echo "install Hardware Info"
 sudo apt-get install -y hardinfo
@@ -52,12 +73,14 @@ sudo apt-get install -y indicator-cpufreq
 echo "Class menu Indicator"
 sudo apt-get install -y classicmenu-indicator
 
+# http://www.webupd8.org/2014/04/oracle-java-installer-conflicting-with.html
 # http://www.webupd8.org/2014/03/oracle-java-8-stable-released-install.html
+# http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
 sudo apt-get install -y oracle-java8-installer
 # java -version
-
+ 
 # For Mac Style
 # http://www.noobslab.com/2013/10/mac-os-x-mbuntu-1310-pack-is-ready.html
 
@@ -131,16 +154,20 @@ sudo apt-get install fcitx-googlepinyin
 #~ sudo glib-compile-schemas /usr/share/glib-2.0/schemas
 
 
-
+# http://www.teejeetech.in/p/timeshift.html
 # Timeshift
-#sudo apt-add-repository -y ppa:teejee2008/ppal
+# TimeShift is similar to applications like rsnapshot, BackInTime and TimeVault but with different goals.
+# http://www.rsnapshot.org/
+# http://backintime.le-web.org/
+# https://wiki.ubuntu.com/TimeVault
+sudo apt-add-repository -y ppa:teejee2008/ppal
 
 
 # sudo apt-get update
 
 
 #~ http://ubuntuhandbook.org/index.php/2013/10/create-system-restore-point-in-ubuntu-via-timeshift/
-#sudo apt-get install  -y timeshift
+sudo apt-get install  -y timeshift
 #~ rsync -ai --delete --numeric-ids --relative --delete-excluded --exclude-from=/mnt/timeshift/timeshift/snapshots/.sync/exclude.list /. /mnt/timeshift/timeshift/snapshots/.sync/localhost/
 
 # ddresuce
@@ -166,6 +193,13 @@ sudo apt-get install testdisk
 
 
 # Fonts
+# http://www.enqlu.com/2014/04/how-to-install-google-web-fonts-in.html
+# http://www.awwwards.com/20-best-web-fonts-from-google-web-fonts-and-font-face.html
+sudo add-apt-repository -y ppa:andrewsomething/typecatcher
+sudo apt-get update
+sudo apt-get install -y typecatcher
+
+
 # http://sourceforge.net/projects/sourcecodepro.adobe/files/
 # http://www.binarytides.com/gorgeous-looking-fonts-ubuntu-linux/
 # cat /etc/fonts/conf.d/50-user.conf 
@@ -212,3 +246,40 @@ sudo cp ../config/00-use-suspend-hybrid /etc/pm/config.d/
 
 # http://serverfault.com/questions/478558/how-to-delete-fuse-hidden-files
 # Execute lsof dir-name/.fuse_hidden000bd8c100000185 to find out what processes are holding the file handle open.
+
+
+# http://www.unixmen.com/upgrade-ubuntu-13-10-saucy-salamander-ubuntu-14-04-trusty-tahr/
+sudo apt-get update && sudo apt-get dist-upgrade
+sudo update-manager -d
+# http://askubuntu.com/questions/421869/do-release-upgrade-fails-with-could-not-calculate-the-upgrade
+grep Broken /var/log/dist-upgrade/apt.log
+sudo dpkg --configure -a
+sudo apt-get install -f
+# If your upgrade was interrupted or a major issue occured, you can try this command :
+# sudo dpkg-reconfigure -phigh -a
+# Broken xserver-xorg-video-nouveau:amd64 Depends on xorg-video-abi-14 [ amd64 ] < none > ( none )
+# Broken xserver-xorg-video-all:amd64 Depends on xserver-xorg-video-ati [ amd64 ] < 1:7.3.99+git20140317.bdc41204-0ubuntu0sarvatt~saucy > ( x11 )
+# Broken xserver-xorg-video-all:amd64 Depends on xserver-xorg-video-intel [ amd64 ] < 2:2.99.911+git20140331.5c0623b5-0ubuntu0ricotz~saucy > ( x11 )
+# Broken xserver-xorg-video-all:amd64 Depends on xserver-xorg-video-nouveau [ amd64 ] < 1:1.0.10+git20140220.480f0998-0ubuntu0sarvatt~saucy > ( x11 )
+# remove xserver-xorg-video-nouveau by using synaptic 
+
+
+# http://askubuntu.com/questions/131601/how-to-overcome-signature-verification-error
+# sudo apt-key adv --recv-keys --keyserver
+
+# W: GPG error: http://dl.google.com stable Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY A040830F7FAC5991
+# W: GPG error: http://dl.google.com stable Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY A040830F7FAC5991
+# W: GPG error: http://extras.ubuntu.com trusty Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 16126D3A3E5C1192
+# W: GPG error: http://archive.ubuntu.com trusty Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
+# W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
+# W: GPG error: http://archive.ubuntu.com trusty-backports Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
+# W: GPG error: http://archive.ubuntu.com trusty-security Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
+  # 496  sudo mv /etc/apt/trusted.gpg.d/webupd8team-y-ppa-manager.gpg .
+  # 497  sudo mv /etc/apt/trusted.gpg.d/xorg-edgers-ppa.gpg .
+  # delete problem gpg and use yppa fixed it 
+# http://www.webupd8.org/2012/12/how-to-list-packages-from-ppa.html
+# You can also do this using a command like the one below, but this will only list the package names, without any additional info (no version, description, etc.):
+# awk '$1 == "Package:" { if (a[$2]++ == 0) print $2; }' /var/lib/apt/lists/*nilarimogard*webupd8*Packages
+# This works for regular repositories too, e.g. to see all the packages available in the proposed repository:
+# awk '$1 == "Package:" { if (a[$2]++ == 0) print $2; }' /var/lib/apt/lists/*proposed*Packages
+# awk '$1 == "Package:" { if (a[$2]++ == 0) print $2; }' /var/lib/apt/lists/*security*multiverse*Packages

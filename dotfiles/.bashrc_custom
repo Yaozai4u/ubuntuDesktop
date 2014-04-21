@@ -37,7 +37,8 @@ alias ..='cd ..'
 alias ...='cd ..;cd ..'
 alias md='mkdir'
 alias cl='clear'
-alias du='du -ch -d=1'
+alias vs='du -ch -d 1 |sort -h'
+alias vsr='du -ch -d 1 |sort -n -r'
 alias treeacl='tree -A -C -L 2'
 
 
@@ -73,4 +74,10 @@ alias nvidia-settings='optirun nvidia-settings -c :8'
 
 alias logerr="grep -Fn '(EE' /var/log/*"
 
-alias fsckdos="sudo dosfsck -w -r -l -a -v -t"
+alias dosfsck="sudo dosfsck -w -r -l -a -v -t"
+
+alias rsync="rsync -avP "
+export PATH="/config/android/sdk/tools:$PATH"
+export PATH="/config/android/sdk/platform-tools:$PATH"
+
+alias chromemem="ps -eo pmem,comm | grep chrome | cut -d ' ' -f 2 | paste -sd+ | bc"
