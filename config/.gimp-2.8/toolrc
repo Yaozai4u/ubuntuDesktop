@@ -1,5 +1,8 @@
 # GIMP toolrc
 
+(GimpToolInfo "gimp-move-tool"
+    (stock-id "gimp-tool-move")
+    (visible yes))
 (GimpToolInfo "gimp-rect-select-tool"
     (stock-id "gimp-tool-rect-select")
     (visible yes))
@@ -21,26 +24,17 @@
 (GimpToolInfo "gimp-foreground-select-tool"
     (stock-id "gimp-tool-foreground-select")
     (visible yes))
+(GimpToolInfo "gimp-crop-tool"
+    (stock-id "gimp-tool-crop")
+    (visible yes))
 (GimpToolInfo "gimp-vector-tool"
     (stock-id "gimp-tool-path")
-    (visible yes))
-(GimpToolInfo "gimp-color-picker-tool"
-    (stock-id "gimp-tool-color-picker")
-    (visible yes))
-(GimpToolInfo "gimp-zoom-tool"
-    (stock-id "gimp-tool-zoom")
     (visible yes))
 (GimpToolInfo "gimp-measure-tool"
     (stock-id "gimp-tool-measure")
     (visible yes))
-(GimpToolInfo "gimp-move-tool"
-    (stock-id "gimp-tool-move")
-    (visible yes))
 (GimpToolInfo "gimp-align-tool"
     (stock-id "gimp-tool-align")
-    (visible yes))
-(GimpToolInfo "gimp-crop-tool"
-    (stock-id "gimp-tool-crop")
     (visible yes))
 (GimpToolInfo "gimp-rotate-tool"
     (stock-id "gimp-tool-rotate")
@@ -93,6 +87,9 @@
 (GimpToolInfo "gimp-perspective-clone-tool"
     (stock-id "gimp-tool-perspective-clone")
     (visible yes))
+(GimpToolInfo "gimp-color-picker-tool"
+    (stock-id "gimp-tool-color-picker")
+    (visible yes))
 (GimpToolInfo "gimp-convolve-tool"
     (stock-id "gimp-tool-blur")
     (visible yes))
@@ -101,6 +98,9 @@
     (visible yes))
 (GimpToolInfo "gimp-dodge-burn-tool"
     (stock-id "gimp-tool-dodge")
+    (visible yes))
+(GimpToolInfo "gimp-zoom-tool"
+    (stock-id "gimp-tool-zoom")
     (visible yes))
 (GimpToolInfo "gimp-desaturate-tool"
     (stock-id "gimp-tool-desaturate")
