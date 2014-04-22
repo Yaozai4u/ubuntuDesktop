@@ -207,13 +207,13 @@ sudo apt-get update
 sudo apt-get install -y nemo nemo-fileroller nemo-compare nemo-rabbitvcs nemo-media-columns nemo-pastebin nemo-seahorse nemo-share nemo-terminal
 
 # Optional: Set Nemo as the default file manager
-# gsettings set org.gnome.desktop.background show-desktop-icons false
+gsettings set org.gnome.desktop.background show-desktop-icons false
 # If you change your mind and want to use Nautilus for drawing the desktop icons instead of Nemo, use the commands below:
 # gsettings set org.nemo.desktop show-desktop-icons false
 # gsettings set org.gnome.desktop.background show-desktop-icons true
 
 # Set Nemo as the default file manager (replacing Nautilus) by running the following command:
-# xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
+xdg-mime default nemo.desktop inode/directory application/x-gnome-saved-search
 # Revert the changes
 # If you want to revert the changes and set Nautilus back as the default file manager, firstly let Nautilus draw the desktop icons:
 # gsettings set org.gnome.desktop.background show-desktop-icons true

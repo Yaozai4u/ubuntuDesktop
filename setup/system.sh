@@ -9,7 +9,7 @@ sudo apt-get install libnss-myhostname
 # http://www.noobslab.com/2014/04/thingstweaks-to-do-after-install-of.html?m=1
  # Disable online searches from dash:
 # https://fixubuntu.com/fixubuntu.sh
-../script/fixubuntu.sh
+../scripts/fixubuntu.sh
 
 
 https://developers.google.com/speed/public-dns/docs/using
@@ -53,7 +53,7 @@ sudo apt-get install -y synaptic
 # http://www.webupd8.org/2013/06/synapse-indicator-new-search.html
 # sudo add-apt-repository ppa:elementary-os/unstable-upstream
 # sudo apt-get update
-# sudo apt-get install indicator-synapse
+sudo apt-get install indicator-synapse
 
 
 echo "install Hardware Info"
@@ -83,6 +83,13 @@ sudo apt-get install -y oracle-java8-installer
  
 # For Mac Style
 # http://www.noobslab.com/2013/10/mac-os-x-mbuntu-1310-pack-is-ready.html
+
+ # Unity global menu & HUD support for Java swing applications
+ # By default, Java Swing applications (IntelliJ IDEA, Android Studio, jDownloader and others) don't support Unity global menu (AppMenu) / HUD. You can get these features though, by using JAyatana,
+sudo add-apt-repository -y ppa:danjaredg/jayatana
+sudo apt-get update
+sudo apt-get install -y jayatana
+
 
 
 # http://www.webupd8.org/2013/06/better-font-rendering-in-linux-with.html
@@ -265,17 +272,12 @@ sudo apt-get install -f
 
 
 # http://askubuntu.com/questions/131601/how-to-overcome-signature-verification-error
-# sudo apt-key adv --recv-keys --keyserver
 
-# W: GPG error: http://dl.google.com stable Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY A040830F7FAC5991
-# W: GPG error: http://dl.google.com stable Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY A040830F7FAC5991
-# W: GPG error: http://extras.ubuntu.com trusty Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 16126D3A3E5C1192
-# W: GPG error: http://archive.ubuntu.com trusty Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
-# W: GPG error: http://archive.ubuntu.com trusty-updates Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
-# W: GPG error: http://archive.ubuntu.com trusty-backports Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
-# W: GPG error: http://archive.ubuntu.com trusty-security Release: The following signatures couldn't be verified because the public key is not available: NO_PUBKEY 40976EAF437D05B5 NO_PUBKEY 3B4FE6ACC0B21F32
-  # 496  sudo mv /etc/apt/trusted.gpg.d/webupd8team-y-ppa-manager.gpg .
-  # 497  sudo mv /etc/apt/trusted.gpg.d/xorg-edgers-ppa.gpg .
+# sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 4C1CBC1B69B0E2F4
+# will list problem gpg as below:
+# gpg: keyblock resource `/etc/apt/trusted.gpg.d/webcamstudio-webcamstudio-dailybuilds.gpg': resource limit
+# gpg: keyblock resource `/etc/apt/trusted.gpg.d/webupd8team-java.gpg': resource limit
+
   # delete problem gpg and use yppa fixed it 
 # http://www.webupd8.org/2012/12/how-to-list-packages-from-ppa.html
 # You can also do this using a command like the one below, but this will only list the package names, without any additional info (no version, description, etc.):
@@ -283,3 +285,16 @@ sudo apt-get install -f
 # This works for regular repositories too, e.g. to see all the packages available in the proposed repository:
 # awk '$1 == "Package:" { if (a[$2]++ == 0) print $2; }' /var/lib/apt/lists/*proposed*Packages
 # awk '$1 == "Package:" { if (a[$2]++ == 0) print $2; }' /var/lib/apt/lists/*security*multiverse*Packages
+
+# http://askubuntu.com/questions/140246/how-do-i-resolve-unmet-dependencies
+# apt-get clean clears out the local repository of retrieved package files (the .deb files). It removes everything but the lock file from /var/cache/apt/archives/ and /var/cache/apt/archives/partial/. 
+# apt-get autoclean clears out the local repository of retrieved package files, but unlike apt-get clean, it only removes package files that can no longer be downloaded, and are largely useless.
+sudo apt-get -f install
+# The -f here stands for 「fix broken」. Apt will attempt to correct broken dependencies. If you manually installed a package that had unmet dependencies, apt-get will install those dependencies, if possible, otherwise it may simply remove the package that you installed in order to resolve the problem.
+sudo dpkg --configure -a
+sudo apt-get -f install
+
+sudo apt-get -u dist-upgrade
+# If it shows any held packages, it is best to eliminate them. Packages are held because of dependency conflicts that apt cannot resolve. Try this command to find and repair the conflicts:
+
+sudo apt-get -o Debug::pkgProblemResolver=yes dist-upgrade

@@ -28,8 +28,8 @@ echo "OverrideGPUValidation=1" | sudo tee -a /etc/adobe/mms.cfg
 # to use va_gl
 # VDPAU_DRIVER=va_gl firefox
 # To enable libvdpau-va-gl system-wide (not recommended for now because this may cause problems with some VDPAU-enabled applications)
-sudo sed -i "s/^# \[/\[/g" /etc/X11/Xsession.d/20vdpau-va-gl
-sudo sed -i "s/^#   export/  export/g" /etc/X11/Xsession.d/20vdpau-va-gl
+# sudo sed -i "s/^# \[/\[/g" /etc/X11/Xsession.d/20vdpau-va-gl
+# sudo sed -i "s/^#   export/  export/g" /etc/X11/Xsession.d/20vdpau-va-gl
  # Optional: check if libvdpau-va-gl/VDPAU is working.
 # You can check if libvdpau-va-gl is working and Adobe Flash Player uses hardware acceleration by right clicking a Flash video on YouTube and selecting "Stats for nerds". The stats box that shows up should display the following: "accelerated video rendering, accelerated video decoding"
 # sudo apt-get install vdpauinfo

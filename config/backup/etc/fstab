@@ -1,0 +1,32 @@
+# /etc/fstab: static file system information.
+#
+# Use 'blkid' to print the universally unique identifier for a
+# device; this may be used with UUID= as a more robust way to name devices
+# that works even if disks are added and removed. See fstab(5).
+#
+# <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# / was on /dev/sda2 during installation
+UUID=4327ebb7-12c5-4a2a-aca2-1bdbe14e06c1 /               ext4    noatime,data=writeback,errors=remount-ro 0       1
+
+UUID=ba2e29d1-dd9b-4e77-b01b-a6db9df1772b /tool               ext4    noatime,data=writeback,errors=remount-ro 0       0
+
+UUID=8897d32b-e06b-44fe-84cd-9eb1d43b4d96 /cache               ext4    discard,noatime,data=writeback,errors=remount-ro 0       0
+
+# swap was on /dev/sda5 during installation
+#UUID=369b029b-119a-4ebc-a5ba-6d5dd02472e5 none            swap    sw              0       0
+
+UUID=78e7502f-92b9-4782-8d75-811fe2e3eaeb none            swap    sw              0       0
+
+
+UUID=D0B0D6DEB0D6C9DC	/Data	ntfs	defaults,nls=utf8,umask=000,uid=1000,windows_names 0       0
+
+# http://bernaerts.dyndns.org/linux/74-ubuntu/250-ubuntu-tweaks-ssd
+# SSD tweak : temporary directories as tmpfs
+
+tmpfs /tmp tmpfs defaults,noatime,mode=1777 0 0
+tmpfs /var/spool tmpfs defaults,noatime,mode=1777 0 0
+
+# SSD tweak : log directory as tmpfs
+tmpfs /var/log tmpfs defaults,noatime,mode=0755 0 0
+tmpfs /var/tmp tmpfs defaults,noatime,mode=1777 0 0
+

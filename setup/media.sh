@@ -23,7 +23,9 @@ echo "Image gimp"
 # http://www.unixmen.com/top-things-installing-ubuntu-13-10/
 # http://www.webupd8.org/2012/05/download-gimp-28-script-fus-pack-more.html
 sudo apt-get install -y gimp gimp-data gimp-plugin-registry gimp-data-extras
-
+# http://www.webupd8.org/2014/02/gimp-get-photoshop-like-keyboard.html
+mv ~/.gimp-2.8 ~/.gimp-2.8.default
+cp ../config/.gimp-2.8 ~/
 
 # /usr/share/gimp/2.0/scripts
 # sudo wget http://www.shallowsky.com/software/pandora/pandora-combine-0.9.3.scm -O /usr/share/gimp/2.0/scripts/pandora-combine-0.9.3.scm
@@ -97,6 +99,9 @@ sudo add-apt-repository -y ppa:samrog131/ppa
 # Avidemux, a video editor designed for simple cutting, filtering and encoding tasks has reached version 2.6.8.
 sudo add-apt-repository -y ppa:rebuntu16/avidemux+unofficial
 # http://ubuntuhandbook.org/index.php/2014/02/install-ffdiaporama-2-1-ubuntu/
+# https://www.youtube.com/watch?v=C4KMDCyB7lk
+# https://www.youtube.com/watch?v=PLaaMdN6AeY
+ # ffDiaporama is an app for creating video sequences consisting of title, photos, video clips, and music. 
 sudo add-apt-repository -y ppa:ffdiaporamateam/stable
 
 
@@ -120,7 +125,7 @@ sudo add-apt-repository -y ppa:mc3man/trusty-media
 # sudo add-apt-repository -y ppa:stebbins/handbrake-snapshots 
 #- See more at: http://www.unixmen.com/how-to-encode-moviesvideos-using-handbrake/#sthash.pvVYfmaH.dpuf
 # http://askubuntu.com/questions/302759/vaapi-not-working-in-ubuntu-13-04
- sudo add-apt-repository -y  ppa:sander-vangrieken/vaapi
+ # sudo add-apt-repository -y  ppa:sander-vangrieken/vaapi
  
 
 
@@ -129,8 +134,8 @@ sudo add-apt-repository -y ppa:mc3man/trusty-media
 
 
 
-
- sudo apt-get install -y mplayer-vaapi
+# Unable to locate package
+ # sudo apt-get install -y mplayer-vaapi
 
 
 
@@ -203,7 +208,11 @@ sudo add-apt-repository -y ppa:noobslab/apps
 
 # http://www.noobslab.com/2014/01/format-junkie-converter-for-ubuntu.html
 # It converts a variety of audio and video formats, and even can convert ISOs to other disc images (in this case the CSO disc image)
-sudo apt-get install -y formatjunkie
+# The following packages have unmet dependencies:
+#  formatjunkie : Depends: libavcodec-extra-53 but it is not installable
+# E: Unable to correct problems, you have held broken packages.
+
+# sudo apt-get install -y formatjunkie
 # http://www.noobslab.com/2014/01/curlew-multi-converter-updated-to.html
 # Curlew is multi-converter tool, it is based on ffmpeg. 
 sudo apt-get install -y curlew

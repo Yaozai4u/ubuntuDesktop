@@ -227,6 +227,7 @@ hciconfig --all
 # To find out which graphics controller is currently used
 
 grep LoadModule /var/log/Xorg.0.log
+# with problem
 # [    29.400] (II) LoadModule: "glx"
 # [    29.592] (II) LoadModule: "intel"
 # [    29.592] (II) LoadModule: "nvidia"
@@ -245,6 +246,17 @@ grep LoadModule /var/log/Xorg.0.log
 # [    29.657] (II) LoadModule: "shadow"
 # [    29.864] (II) LoadModule: "evdev"
 # [    29.896] (II) LoadModule: "synaptics
+# seem ok
+# [    30.528] (II) LoadModule: "glx"
+# [    30.722] (II) LoadModule: "intel"
+# [    30.757] (II) LoadModule: "modesetting"
+# [    30.778] (II) LoadModule: "fbdev"
+# [    30.781] (II) LoadModule: "vesa"
+# [    30.790] (II) LoadModule: "fbdevhw"
+# [    30.804] (II) LoadModule: "dri2"
+# [    30.975] (II) LoadModule: "evdev"
+# [    31.018] (II) LoadModule: "synaptics"
+
 # grep Driver /etc/X11/xorg.conf
 sudo lshw -C video
   # *-display               
@@ -261,6 +273,7 @@ sudo lshw -C video
   #      resources: irq:46 memory:c3400000-c37fffff memory:d0000000-dfffffff ioport:5000(size=64)
 
 
-# for Intel GPUs (for Intel HD Graphics as well as G45 and later):
-sudo apt-get install i965-va-driver libva-intel-vaapi-driver vainfo libva-driver-intel-g45-h264
 
+# for Intel GPUs (for Intel HD Graphics as well as G45 and later):
+#Flash
+sudo apt-get install -y i965-va-driver libva-intel-vaapi-driver vainfo 
