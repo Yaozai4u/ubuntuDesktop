@@ -81,3 +81,5 @@ export PATH="/config/android/sdk/tools:$PATH"
 export PATH="/config/android/sdk/platform-tools:$PATH"
 
 alias chromemem="ps -eo pmem,comm | grep chrome | cut -d ' ' -f 2 | paste -sd+ | bc"
+
+alias cputime="ps -e --format=time,pid,user,comm | sort"

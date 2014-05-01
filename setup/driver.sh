@@ -220,9 +220,13 @@ cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor
 
 sudo apt-get install -y blueman
 # http://askubuntu.com/questions/204716/bluetooth-how-to-browse-files-on-a-device
-sudo apt-get install bluez-utils libopenobex1 bluez-tools 
+sudo apt-get install -y bluez-utils libopenobex1 bluez-tools 
 # Details of the Bluetooth device is obtained with the command:
 hciconfig --all 
+
+# Loading the bluetooth discovery module manually fixes the problem by now:
+# when no bluetooth output sound appear fixed by
+# sudo pactl load-module module-bluetooth-discover
 
 # To find out which graphics controller is currently used
 

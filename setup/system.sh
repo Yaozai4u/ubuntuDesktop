@@ -6,6 +6,9 @@
 # systemd-hostnamed[3024]: Warning: nss-myhostname is not installed. Changing the local hostname might make it unresolveable. Please install nss-myhostname!
 sudo apt-get install libnss-myhostname
 
+#use custom time-format
+gsettings set com.canonical.indicator.datetime time-format custom && gsettings set com.canonical.indicator.datetime custom-time-format "%b%e %a,%k:%M"
+
 # http://www.noobslab.com/2014/04/thingstweaks-to-do-after-install-of.html?m=1
  # Disable online searches from dash:
 # https://fixubuntu.com/fixubuntu.sh
@@ -39,6 +42,10 @@ gsettings set com.canonical.desktop.interface scrollbar-mode normal
 
  # Enable recursive search for Nautilus:
  gsettings set org.gnome.nautilus.preferences enable-interactive-search false
+
+
+
+
 
 # http://askubuntu.com/questions/184738/is-it-possible-to-make-all-currently-open-windows-minimize-whenever-i-open-a-ne
 echo "install ccsm(compiz config setting manager)"
@@ -146,7 +153,8 @@ sudo add-apt-repository -y ppa:fcitx-team/nightly
 
 sudo apt-get update
 
-sudo apt-get install fcitx-googlepinyin
+sudo apt-get install fcitx-googlepinyin ibus-googlepinyin
+
 #echo "uninstall ibus"
 #sudo apt-get purge ibus ibus-gtk ibus-gtk3
 #sudo apt-get purge ibus-pinyin ibus-table python-ibus
@@ -218,7 +226,8 @@ sudo fc-cache -f -v
 sudo sed -i 's/enabled=1/enabled=0/g' /etc/default/apport
 sudo service apport stop
 
-
+# Lubuntu autostart
+# http://askubuntu.com/questions/81383/how-can-i-add-new-autostart-programs-in-lubuntu
 
 # ubuntu hiberate
 # https://help.ubuntu.com/community/UsingUUID
@@ -238,6 +247,13 @@ sudo service apport stop
 # sudo pm-is-supported --hibernate && echo "hibernation is supported" || echo "your system doesn't support hibernation"
 
 sudo cp ../config/com.ubuntu.enable-hibernate.pkla /var/lib/polkit-1/localauthority/50-local.d/
+
+# http://www.techques.com/question/24-21586/How-can-I-configure-dbus-to-allow-ssh-user-to-suspend-server
+
+# /usr/share/polkit-1/actions/org.freedesktop.upower.policy
+# <allow_inactive>no</allow_inactive>
+       # <allow_active>yes</allow_active>
+# +      <allow_any>yes</allow_any>
 
 # sleep 60 && killall indicator-session-service
 

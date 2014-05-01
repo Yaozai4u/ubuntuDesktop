@@ -55,8 +55,25 @@ sudo apt-get install -y fping
 echo "Remote desktop"
 sudo apt-get install -y Remmina
 
+# It turns out that when you connect, if you've used a tunnel to connect to the RDP server it creates/appends to a file called ~/.freerdp/known_hosts which stores the public key assocated with the server. If you use a different tunnel or server then the key no longer matches. Deleting the apropriate line in ~/.freerdp/known_hosts fixed the issue. 
 
 
+echo "rdesktop"
+# Remmina Plugin RDesktop is a free software protocol plugin to establish a RDP connection using RDesktop which sometimes performs better than the FreeRDP integrated plugin in Remmina and also provides a lot of features like clipboard sync, remote folders support, remote audio, seamless RDP and various settings for performances.
+sudo apt-get install -y rdesktop
+wget  http://www.muflone.com/resources/remmina-plugin-rdesktop/archive/1.0.0.3/remmina-plugin-rdesktop_1.0.0.3-1_amd64.deb -O /tmp/remmina-plugin-rdesktop.deb 
+sudo dpkg -i /tmp/remmina-plugin-rdesktop.deb 
+rm /tmp/remmina-plugin-rdesktop.deb
+# http://serverfault.com/questions/574759/rdesktop-error-recv-connection-reset-by-peer
+# From time to time I forget this setting. The vast majority of it means "Turn off Remote Desktop with NLA".
+
+# Set on target "Microsoft Windows (WIN)"
+
+# run SystemPropertiesRemote.exe
+# deselect "Allow connections only from computers running Remote Desktop with NLA"
+# try to connect from linux client
+
+# http://www.muflone.com/remmina-plugin-rdesktop/english/download.html
 
 
 # skype
@@ -74,10 +91,17 @@ sudo apt-get install -y gtk2-engines-murrine:i386  gtk2-engines-pixbuf:i386
 #sudo apt-get install pulseaudio pavucontrol padevchooser
 
 
+# http://www.webupd8.org/2014/02/how-to-install-chromium-beta-or-dev.html
+sudo add-apt-repository -y ppa:saiarcot895/chromium-dev
+sudo apt-get update
+sudo apt-get install -y chromium-browser
+sudo apt-get install pepperflashplugin-nonfree
+# The installer can be used to install Pepper Flash Player from either Google Chrome Stable, Beta or Unstable. 
+sudo update-pepperflashplugin-nonfree --install
 
 echo "install chrome"
 wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - 
-sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google.list'
+sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 sudo apt-get update 
 sudo apt-get install -y google-chrome-unstable
 
@@ -88,7 +112,18 @@ sudo apt-get install -y google-chrome-unstable
 # if you want to use services such as Netflix, Maxdome and others, you can use Pipelight. Pipelight lets you use Microsoft Silverlight, Widevine (the built-in Chrome Widevine doesn't work with many websites), and more with native Linux web browsers (Pipelight itself uses Wine).
 
 sudo apt-add-repository -y ppa:pipelight/stable
+
+# http://www.webupd8.org/2013/12/tor-browser-bundle-ubuntu-ppa.html
+
+sudo add-apt-repository -y ppa:webupd8team/tor-browser
+
 sudo apt-get update
+
+
+sudo apt-get install -y tor-browser
+
+
+
 sudo apt-get install -y pipelight-multi
 
  # install the Silverlight plugin

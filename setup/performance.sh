@@ -40,9 +40,9 @@
 
 
 # add /etc/fstab noatime,data=writeback
-#~ sudo apt-get autoremove -y indicator-messages
-#~ sudo apt-get autoremove -y telepathy-indicator
-#~ sudo apt-get autoremove -y telepathy-gabble
+# sudo apt-get autoremove -y indicator-messages
+# sudo apt-get autoremove -y telepathy-indicator
+# sudo apt-get autoremove -y telepathy-gabble
 
 # http://www.techdrivein.com/2013/03/4-simple-tweaks-to-improve-unity-performance-ubuntu.html
 sudo apt-get autoremove unity-lens-music unity-lens-photos unity-lens-gwibber unity-lens-shopping unity-lens-video
@@ -51,7 +51,6 @@ gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-ama
 
 # https://sites.google.com/site/easylinuxtipsproject/first#TOC-Decrease-the-swap-use-very-important-
 echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
-
 echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
 
 sudo apt-get install -y bum

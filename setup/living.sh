@@ -18,7 +18,7 @@ sudo dpkg -i google-earth-stable_current_i386.deb
 # http://installion.co.uk/ubuntu/raring/universe/e/eog-plugins/install.html
 sudo apt-get install eog-plugins
 
-http://docs.qgis.org/1.8/en/docs/user_manual/osm/openstreetmap.html
+# http://docs.qgis.org/1.8/en/docs/user_manual/osm/openstreetmap.html
 
 # http://www.dl8rds.de/index.php/Logging_with_the_Blumax_4044
 sudo apt-get install mtkbabel
@@ -40,7 +40,6 @@ sudo apt-get install gpsprune
 # http://new.qgis.org/html/en/site/forusers/alldownloads.html
 sudo apt-get install -y python-software-properties
 sudo add-apt-repository -y ppa:ubuntugis/ubuntugis-unstable
-# sudo apt-get update
 
 
 sudo add-apt-repository -y ppa:gottengeography

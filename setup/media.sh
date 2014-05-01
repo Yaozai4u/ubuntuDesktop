@@ -63,10 +63,10 @@ sudo apt-get install -y sweethome3d
 # sudo apt-get install -y gnash
 # sudo sed -i 's/x-shockwave-flash=totem.desktop/x-shockwave-flash=gnash.desktop/g' /etc/gnome/defaults.list
 
-
-#~ Other ppa
+ # Other ppa
 echo "Install Slow motion video Editor"
-sudo add-apt-repository -y ppa:brousselle/slowmovideo
+# http://www.webupd8.org/2014/02/create-classy-slow-motion-videos-in.html
+# sudo add-apt-repository -y ppa:brousselle/slowmovideo
 #~ record-animated-gif-screencasts-ubuntu
 sudo add-apt-repository -y ppa:fossfreedom/byzanz
 #~ Picapy is a Desktop App to manage your Picasa Web photos
@@ -185,8 +185,9 @@ sudo apt-get install -y ffmpeg
 
 sudo cp ../scripts/ffmpeg-split.py /usr/bin/
 #~ http://ubuntuhandbook.org/index.php/2013/10/install-slowmovideo-slow-motion-video-ubuntu1310/
-echo "Install Slow motion video Editor"
-sudo apt-get install -y slowmovideo
+# http://www.webupd8.org/2014/02/create-classy-slow-motion-videos-in.html
+# echo "Install Slow motion video Editor"
+# sudo apt-get install -y slowmovideo
 
 #~ http://ubuntuhandbook.org/index.php/2013/09/record-animated-gif-screencasts-ubuntu/
 sudo apt-get install -y byzanz
@@ -246,7 +247,7 @@ rm AdobeAIRInstaller.bin; sudo rm /usr/lib/libgnome-keyring.so.0 /usr/lib/libgno
 # http://www.aboutonlinetips.com/best-subtitle-editor-tools/
 # http://sub.wordnerd.de/linux-subs.html
 # http://www.sub-talk.net/topic/2751-subtitle-edit-for-ubuntu-troubleshoting-tips-and-tricks/
-sudo apt-get install gaupol
+sudo apt-get install -y gaupol
 
 # http://askubuntu.com/questions/9443/how-to-calibrate-the-monitor-on-an-ubuntu-system
 # sudo apt-get install gnome-color-manager

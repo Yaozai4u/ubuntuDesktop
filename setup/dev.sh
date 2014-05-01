@@ -62,7 +62,11 @@ sudo apt-get install sublime-text-installer
 # https://github.com/seanliang/Codecs33/tree/linux-x64
 # https://github.com/seanliang/ConvertToUTF8
 
-
+# http://www.webupd8.org/2013/11/install-brackets-in-ubuntu-via-ppa-open.html
+# Brackets is an open-source code editor for web design and development built on top of web technologies such as HTML, CSS and JavaScript
+sudo add-apt-repository -y  ppa:webupd8team/brackets
+sudo apt-get update
+sudo apt-get install -y brackets
 
 echo "Http regression testing and benchmarking utility"
 sudo apt-get install siege

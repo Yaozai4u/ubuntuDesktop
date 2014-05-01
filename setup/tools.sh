@@ -41,6 +41,8 @@ sudo apt-get install -y gufw
 
 echo "install keepass2"
 sudo apt-get install -y keepass2
+# http://blog.csdn.net/magicneo/article/details/12071533
+# 經過分析發現，是軟件默認字體設置導致了漢字不能夠正常顯示。解決方法是：在Tools菜單下，打開options對話框，在「Select List Font」下把字體調成能夠顯示漢字的字體就可以了。
 # http://www.webupd8.org/2013/05/keepass-2-appindicator-extension-for.html
 
 sudo add-apt-repository -y ppa:dlech/keepass2-plugins
@@ -159,8 +161,8 @@ sudo apt-get install nautilus-actions
 
 
 
-~ hotshots
-#~ sudo add-apt-repository -y ppa:dhor/myway
+# hotshots
+# sudo add-apt-repository -y ppa:dhor/myway
 
 
 
@@ -197,14 +199,18 @@ sudo apt-get install -y y-ppa-manager
 
 # http://www.noobslab.com/2013/12/sunflower-dual-pane-file-manager.html
 # Sunflower is Open Source, twin panel, small and highly customizable File Manager for Linux with plugins support.
-sudo add-apt-repository -y ppa:atareao/sunflower
-sudo apt-get update
-sudo apt-get install -y sunflower
+# sudo add-apt-repository -y ppa:atareao/sunflower
+# sudo apt-get update
+# sudo apt-get install -y sunflower
 
 # http://www.webupd8.org/2013/10/install-nemo-with-unity-patches-and.html
 sudo add-apt-repository -y ppa:webupd8team/nemo
 sudo apt-get update
 sudo apt-get install -y nemo nemo-fileroller nemo-compare nemo-rabbitvcs nemo-media-columns nemo-pastebin nemo-seahorse nemo-share nemo-terminal
+
+# not app for trusty
+# http://www.webupd8.org/2013/12/manipulate-images-in-nautilus-or-nemo.html
+
 
 # Optional: Set Nemo as the default file manager
 gsettings set org.gnome.desktop.background show-desktop-icons false

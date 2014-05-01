@@ -9,8 +9,8 @@
 
 echo "adb device"
 # http://www.vogella.com/articles/Android/article.html
-
-sudo apt-get install libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5
+# http://dandar3.blogspot.tw/2014/03/android-sdk-tools-on-ubuntu-1404-beta.html
+sudo apt-get install -y libc6-i386 lib32stdc++6 lib32gcc1 lib32ncurses5  lib32z1 lib32bz2-1.0 
 
 # http://xiaomi.eu/community/threads/connect-xiaomi-mi2-to-linux-laptop.18936/#6
 # .android/adb_usb.ini 
@@ -56,7 +56,8 @@ sudo cp ../config/51-android.rules /etc/udev/rules.d/
 # grep ^0x ~/.android/adb_usb.ini | sort -u | sponge ~/.android/adb_usb.ini
 
 
-
+# http://www.noobslab.com/2014/04/android-development-program-android.html
+# Install Android Studio in Ubuntu 
 
 #no need to do these
 
