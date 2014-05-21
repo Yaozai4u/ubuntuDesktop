@@ -55,6 +55,11 @@ sudo apt-get install psensor
 
 sudo apt-get install -y indicator-multiload
 
+# http://www.webupd8.org/2014/05/ubuntu-appindicator-that-displays-bash.html?m=1
+# sudo add-apt-repository ppa:fossfreedom/indicator-sysmonitor
+# sudo apt-get update
+# sudo apt-get install indicator-sysmonitor
+
 # http://www.cyberciti.biz/networking/nload-linux-command-to-monitor-network-traffic-bandwidth-usage/
 # sudo apt-get install nload
 

@@ -46,9 +46,14 @@ sudo add-apt-repository -y ppa:gottengeography
 # Daily Builds for Ubuntu
 # sudo add-apt-repository ppa:gottengeography/daily
 
+# http://www.omgubuntu.co.uk/2014/05/timekpr-restrict-computer-access-ubuntu
+# sudo add-apt-repository -y ppa:mjasnik/ppa 
+
 sudo apt-get update
 
-sudo apt-get install qgis python-qgis qgis-plugin-grass
+# sudo apt-get install -y timekpr
 
-sudo apt-get install gottengeography
+sudo apt-get install -y qgis python-qgis qgis-plugin-grass
+
+sudo apt-get install -y gottengeography
 

@@ -110,6 +110,25 @@ sudo add-apt-repository -y ppa:ffdiaporamateam/stable
 # http://www.webupd8.org/2012/01/smplayer-070-brings-youtube-and.html
 sudo add-apt-repository -y ppa:rvm/smplayer
 
+# http://thinkinghard.com/blog/HowToMakeHighQualityScreencastsInLinux.html
+# Screen Annotations
+# Compiz Annotate plugin
+# gromit-mpx
+# https://github.com/bk138/gromit-mpx
+sudo apt-get install -y gromit-mpx
+# http://ubuntuforums.org/showthread.php?t=2071749
+# hotkeys don't like multiple commands so sh -c wraps everything up and acts as 1 cmd.
+# add custom keyboard Disable Print screen and Print to shortcut
+# sh -c '(gromit-mpx &) && gromit-mpx -t'
+# gromit-mpx -q
+
+# xev  #get keymap  -k <keysym>, --key <keysym>  To determine the keysym for different  keys  you can use the xev(1) command
+
+# The Annotate plugin does freehand drawing, rectangles and ellipses. gromit-mbx only does freehand drawing, but because it uses a hot-key to initiate drawing, you can draw with an unmodified left-mouse click-and-drag, which is not possible with Annotate (or it might be possible, but you get warned there will be a conflict with existing settings, and you really don't want to set something that permanently hijacks left-mouse click).
+# Editing: Kdenlive
+
+# Using Xournal to Annotate PDF Presentations
+sudo apt-get install -y xournal
 
 # http://www.webupd8.org/2013/06/simplescreenrecorder-powerful-screen.html
 sudo add-apt-repository -y ppa:maarten-baert/simplescreenrecorder
@@ -206,6 +225,8 @@ sudo apt-get install -y webcamstudio
 # sudo apt-get install -y winff libavcodec-extra-53
 
 sudo add-apt-repository -y ppa:noobslab/apps
+# http://www.noobslab.com/2014/05/fotoxx-powerful-image-editor-for.html
+
 
 # http://www.noobslab.com/2014/01/format-junkie-converter-for-ubuntu.html
 # It converts a variety of audio and video formats, and even can convert ISOs to other disc images (in this case the CSO disc image)

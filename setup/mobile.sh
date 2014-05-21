@@ -57,6 +57,7 @@ sudo cp ../config/51-android.rules /etc/udev/rules.d/
 
 
 # http://www.noobslab.com/2014/04/android-development-program-android.html
+# http://www.webupd8.org/2014/05/install-android-studio-in-ubuntu-via-ppa.html
 # Install Android Studio in Ubuntu 
 
 #no need to do these

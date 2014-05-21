@@ -32,6 +32,37 @@ echo "Install Compression/Decompression tools"
 sudo apt-get install -y p7zip-rar p7zip-full unace unrar zip unzip sharutils rar uudeview mpack arj cabextract file-roller
 #~ http://www.thegeekstuff.com/2010/04/view-and-extract-packages/
 
+# Creating a boot usb flash disk
+# http://zleap.net/unetbootln-usb-how_to/
+# sudo apt-get install -y unetbootin
+# http://askubuntu.com/questions/384006/are-there-are-alts-to-yumi-multiboot-creator-tool-for-ubuntu-12-04
+# http://steamcommunity.com/groups/steamuniverse/discussions/1/648814395813782335/
+# Make bootable installer ISO image
+# xorriso -as mkisofs -r -checksum_algorithm_iso md5,sha1 -V 'Steam OS' \
+# -o /tmp/SteamOSInstaller.iso -J -joliet-long -cache-inodes -no-emul-boot \
+# -boot-load-size 4 -boot-info-table -eltorito-alt-boot --efi-boot boot/grub/efi.img \
+# -append_partition 2 0x01 /tmp/SteamOSInstaller/boot/grub/efi.img \
+# -partition_offset 16 /tmp/SteamOSInstaller
+
+
+# sudo add-apt-repository -y ppa:nemh/gambas3
+
+# http://fedoraproject.org/wiki/User:Pjones/BootableCDsForBIOSAndUEFI
+# https://wiki.ubuntu.com/USBStickUEFIHowto
+# sudo apt-get install gdisk parted kpartx
+# https://wiki.ubuntu.com/SecurityTeam/SecureBoot#efilinux_bootloader
+# sudo apt-get install efilinux efilinux-signed
+
+
+# http://community.linuxmint.com/tutorial/view/1219
+# http://www.webupd8.org/2010/03/how-to-create-multiboot-livesudo apt-get install gdisk parted kpartxusb-using.html
+# Multisystem
+# cant run?
+# wget http://liveusb.info/multisystem/install-depot-multisystem.sh.tar.bz2
+# tar -xvf install-depot-multisystem.sh.tar.bz2
+# sudo ./install-depot-multisystem.sh
+
+
 
 #echo "install micom for comport"
 #sudo apt-get install -y minicom
@@ -146,13 +177,18 @@ sudo add-apt-repository -y ppa:webupd8team/y-ppa-manager
 
 
 
+sudo add-apt-repository -y ppa:stefansundin/truecrypt
+
+
 sudo apt-get update
 
 
-sudo apt-get install indicator-stickynotes
+sudo apt-get install -y  truecrypt
+
+sudo apt-get install -y indicator-stickynotes
 
 
-sudo apt-get install nautilus-actions 
+sudo apt-get install -y nautilus-actions 
 # remove some problem with rabbit-cvs problem with python nautilus-actions-extra
 # http://askubuntu.com/questions/76712/setting-nautilus-open-terminal-to-launch-terminator-rather-than-gnome-terminal
 
@@ -207,6 +243,7 @@ sudo apt-get install -y y-ppa-manager
 sudo add-apt-repository -y ppa:webupd8team/nemo
 sudo apt-get update
 sudo apt-get install -y nemo nemo-fileroller nemo-compare nemo-rabbitvcs nemo-media-columns nemo-pastebin nemo-seahorse nemo-share nemo-terminal
+# F4 to get command windows
 
 # not app for trusty
 # http://www.webupd8.org/2013/12/manipulate-images-in-nautilus-or-nemo.html

@@ -50,7 +50,7 @@ sudo apt-get autoremove unity-lens-music unity-lens-photos unity-lens-gwibber un
 gsettings set com.canonical.Unity.Lenses disabled-scopes "['more_suggestions-amazon.scope', 'more_suggestions-u1ms.scope', 'more_suggestions-populartracks.scope', 'music-musicstore.scope', 'more_suggestions-ebay.scope', 'more_suggestions-ubuntushop.scope', 'more_suggestions-skimlinks.scope']"
 
 # https://sites.google.com/site/easylinuxtipsproject/first#TOC-Decrease-the-swap-use-very-important-
-echo "vm.swappiness=10" | sudo tee -a /etc/sysctl.conf
+echo "vm.swappiness=5" | sudo tee -a /etc/sysctl.conf
 echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
 
 sudo apt-get install -y bum

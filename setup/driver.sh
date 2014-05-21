@@ -19,6 +19,21 @@ sudo sed -i 's/LibraryPath=\/usr\/lib\/nvidia-current:\/usr\/lib32\/nvidia-curre
 sudo sed -i 's/XorgModulePath=\/usr\/lib\/nvidia-current/XorgModulePath=\/usr\/lib\/nvidia-331-updates/g' /etc/bumblebee/bumblebee.conf
 egrep "nvidia" /etc/bumblebee/bumblebee.conf
 
+
+# http://askubuntu.com/questions/466197/14-04-intel-graphics-installer-1-0-5-clearsigned-file-isnt-valid#comment616085_466197
+# http://www.omgubuntu.co.uk/2014/05/intel-linux-graphics-driver-installer-1-0-5
+# wget --no-check-certificate https://download.01.org/gfx/RPM-GPG-KEY-ilg -O - | \
+# sudo apt-key add -
+# wget --no-check-certificate https://download.01.org/gfx/RPM-GPG-KEY-ilg-2 -O - | \
+# sudo apt-key add -
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A902DDA375E52366
+sudo sh -c 'echo "deb https://download.01.org/gfx/ubuntu/14.04/main/ trusty main #Intel Graphics drivers" > /etc/apt/sources.list.d/intellinuxgraphics.list'
+sudo apt-get update 
+
+sudo apt-get install -y intel-linux-graphics-installer
+sudo intel-linux-graphics-installer
+
+
 #if update nvidia version
 # sudo sed -i 's/nvidia-331-updates/nvidia-337/g' /etc/bumblebee/bumblebee.conf
 
@@ -122,16 +137,6 @@ lspci -nnk | grep -iA2 vga
 
 
 
-# http://ubuntuforums.org/showthread.php?t=2181534
-# http://askubuntu.com/questions/363152/brightness-issue-in-a-lenovo-thinkpad-edge-lr236w5
-# cat /proc/cmdline
-# lspci -k | grep -A3 VGA
-# /etc/default/grub
-# GRUB_CMDLINE_LINUX="acpi_osi=\"!Windows 2012\""
-# sudo sed -i 's/GRUB_CMDLINE_LINUX="acpi_osi=\\"!Windows 2012\\""/GRUB_CMDLINE_LINUX=""/g' /etc/default/grub
-# sudo update-grub
-
-
 
 # http://askubuntu.com/questions/80914/how-reinstall-the-default-graphics-drivers
 # sudo apt-get purge nvidia-*
@@ -163,6 +168,16 @@ unity --reset-icons
 #sudo apt-get install -y libbsapi policykit-1-fingerprint-gui fingerprint-gui
  
 
+
+
+# http://ubuntuforums.org/showthread.php?t=2181534
+# http://askubuntu.com/questions/363152/brightness-issue-in-a-lenovo-thinkpad-edge-lr236w5
+# cat /proc/cmdline
+# lspci -k | grep -A3 VGA
+# /etc/default/grub
+# GRUB_CMDLINE_LINUX="acpi_osi=\"!Windows 2012\""
+# sudo sed -i 's/GRUB_CMDLINE_LINUX="acpi_osi=\\"!Windows 2012\\""/GRUB_CMDLINE_LINUX=""/g' /etc/default/grub
+# sudo update-grub
 
 # in syslog error when change brightness: ACPI Exception: AE_AML_PACKAGE_LIMIT,
 # https://bbs.archlinux.org/viewtopic.php?id=159925

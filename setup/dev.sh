@@ -55,6 +55,14 @@ sudo apt-get update
 sudo apt-get install sublime-text-installer
 # ctrl+shift+p (or cmd+shift+p): ww (word wrap) toggle.
 
+# http://www.webupd8.org/2014/05/install-atom-text-editor-in-ubuntu-via-ppa.html?m=1
+
+sudo add-apt-repository -y ppa:webupd8team/atom
+sudo apt-get update
+sudo apt-get install -y atom
+
+
+
 # https://sublime.wbond.net/
 # Package Control 新網站上線，找 Package 更方便了，每個 Package 還有漂亮的下載統計圖表！
 # plugins
@@ -74,7 +82,7 @@ sudo apt-get install siege
 
 
 echo "Install Virtualbox 4.3"
-
+# http://lifehacker.com/the-power-users-guide-to-better-virtual-machines-in-vir-1569943402
 # http://www.webupd8.org/2013/10/virtualbox-43-released-with-multi-touch.html
 echo "deb http://download.virtualbox.org/virtualbox/debian $(lsb_release -sc) contrib" | sudo tee /etc/apt/sources.list.d/virtualbox.list
 wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -

@@ -15,7 +15,11 @@ gsettings set com.canonical.indicator.datetime time-format custom && gsettings s
 ../scripts/fixubuntu.sh
 
 
-https://developers.google.com/speed/public-dns/docs/using
+# http://itsfoss.com/speed-up-ubuntu-1310/
+# Remove language related ign from apt-get update:
+echo 'Acquire::Languages "none";'| sudo tee -a /etc/apt/apt.conf.d/00aptitude
+
+# https://developers.google.com/speed/public-dns/docs/using
 # http://askubuntu.com/questions/196022/why-nslookup-result-always-comes-from-server-127-0-0-1
 grep dns /etc/NetworkManager/NetworkManager.conf
 sudo sed -i 's/^dns=dnsmasq/#dns=dnsmasq/g' /etc/NetworkManager/NetworkManager.conf
@@ -24,7 +28,7 @@ sudo restart network-manager
 
 # http://linux.hostileweb.com/?page_id=636
 # ntpdate[]: Can't find host ntp.ubuntu.com: Name or service not known (-2)
-# cat /etc/defaults/ntpdate 
+# cat /etc/defaults/ntpdate
 # http://www.pool.ntp.org/zone/tw
 # /etc/ntp.conf
 sudo cp -f ../config/ntp.conf /etc
@@ -70,7 +74,7 @@ echo "install gparted"
 sudo apt-get install -y gparted
 
 
-echo "install indicator cpu frequency"  
+echo "install indicator cpu frequency"
 sudo apt-get install -y indicator-cpufreq
 
 
@@ -83,11 +87,15 @@ sudo apt-get install -y classicmenu-indicator
 # http://www.webupd8.org/2014/04/oracle-java-installer-conflicting-with.html
 # http://www.webupd8.org/2014/03/oracle-java-8-stable-released-install.html
 # http://www.webupd8.org/2012/09/install-oracle-java-8-in-ubuntu-via-ppa.html
-sudo add-apt-repository -y ppa:webupd8team/java
+# cant use in web
+# sudo add-apt-repository -y ppa:webupd8team/java
 sudo apt-get update
-sudo apt-get install -y oracle-java8-installer
+# problem using in web blank popup in security
+# sudo apt-get install -y oracle-java8-installer
+# http://www.webupd8.org/2012/01/install-oracle-java-jdk-7-in-ubuntu-via.html
+# iced-tea version need 1.7
 # java -version
- 
+
 # For Mac Style
 # http://www.noobslab.com/2013/10/mac-os-x-mbuntu-1310-pack-is-ready.html
 
@@ -143,7 +151,7 @@ sudo apt-get install fontconfig-infinality
 # http://linrunner.de/en/tlp/docs/tlp-configuration.html
 sudo add-apt-repository -y ppa:linrunner/tlp
 sudo apt-get update
-# If you are installing on a recent Thinkpad that has an Ivy Bridge processor (X230, T430, T530, etc.), tp_smapi will not work. 
+# If you are installing on a recent Thinkpad that has an Ivy Bridge processor (X230, T430, T530, etc.), tp_smapi will not work.
 # Use thinkpad-acpi.
 # tp-smapi-dkms
 sudo apt-get install tlp tlp-rdw  acpi-call-tools
@@ -217,7 +225,7 @@ sudo apt-get install -y typecatcher
 
 # http://sourceforge.net/projects/sourcecodepro.adobe/files/
 # http://www.binarytides.com/gorgeous-looking-fonts-ubuntu-linux/
-# cat /etc/fonts/conf.d/50-user.conf 
+# cat /etc/fonts/conf.d/50-user.conf
 sudo cp -a ../fonts/* /usr/share/fonts
 rsync -a /config/ubuntuDesktop/config/font.conf ~/.config/fontconfig/
 sudo fc-cache -f -v
@@ -284,7 +292,7 @@ sudo apt-get install -f
 # Broken xserver-xorg-video-all:amd64 Depends on xserver-xorg-video-ati [ amd64 ] < 1:7.3.99+git20140317.bdc41204-0ubuntu0sarvatt~saucy > ( x11 )
 # Broken xserver-xorg-video-all:amd64 Depends on xserver-xorg-video-intel [ amd64 ] < 2:2.99.911+git20140331.5c0623b5-0ubuntu0ricotz~saucy > ( x11 )
 # Broken xserver-xorg-video-all:amd64 Depends on xserver-xorg-video-nouveau [ amd64 ] < 1:1.0.10+git20140220.480f0998-0ubuntu0sarvatt~saucy > ( x11 )
-# remove xserver-xorg-video-nouveau by using synaptic 
+# remove xserver-xorg-video-nouveau by using synaptic
 
 
 # http://askubuntu.com/questions/131601/how-to-overcome-signature-verification-error
@@ -294,7 +302,7 @@ sudo apt-get install -f
 # gpg: keyblock resource `/etc/apt/trusted.gpg.d/webcamstudio-webcamstudio-dailybuilds.gpg': resource limit
 # gpg: keyblock resource `/etc/apt/trusted.gpg.d/webupd8team-java.gpg': resource limit
 
-  # delete problem gpg and use yppa fixed it 
+  # delete problem gpg and use yppa fixed it
 # http://www.webupd8.org/2012/12/how-to-list-packages-from-ppa.html
 # You can also do this using a command like the one below, but this will only list the package names, without any additional info (no version, description, etc.):
 # awk '$1 == "Package:" { if (a[$2]++ == 0) print $2; }' /var/lib/apt/lists/*nilarimogard*webupd8*Packages
@@ -303,7 +311,7 @@ sudo apt-get install -f
 # awk '$1 == "Package:" { if (a[$2]++ == 0) print $2; }' /var/lib/apt/lists/*security*multiverse*Packages
 
 # http://askubuntu.com/questions/140246/how-do-i-resolve-unmet-dependencies
-# apt-get clean clears out the local repository of retrieved package files (the .deb files). It removes everything but the lock file from /var/cache/apt/archives/ and /var/cache/apt/archives/partial/. 
+# apt-get clean clears out the local repository of retrieved package files (the .deb files). It removes everything but the lock file from /var/cache/apt/archives/ and /var/cache/apt/archives/partial/.
 # apt-get autoclean clears out the local repository of retrieved package files, but unlike apt-get clean, it only removes package files that can no longer be downloaded, and are largely useless.
 sudo apt-get -f install
 # The -f here stands for 「fix broken」. Apt will attempt to correct broken dependencies. If you manually installed a package that had unmet dependencies, apt-get will install those dependencies, if possible, otherwise it may simply remove the package that you installed in order to resolve the problem.
@@ -314,3 +322,48 @@ sudo apt-get -u dist-upgrade
 # If it shows any held packages, it is best to eliminate them. Packages are held because of dependency conflicts that apt cannot resolve. Try this command to find and repair the conflicts:
 
 sudo apt-get -o Debug::pkgProblemResolver=yes dist-upgrade
+
+
+# https://help.ubuntu.com/community/UEFI
+# http://askubuntu.com/questions/401323/change-legacy-mode-to-uefi-after-installing-ubuntu
+sudo add-apt-repository ppa:yannubuntu/boot-repair
+sudo sed 's/trusty/saucy/g' -i /etc/apt/sources.list.d/yannubuntu-boot-repair-trusty.list
+sudo apt-get update
+sudo apt-get install -y boot-repair && (boot-repair &)
+
+[ -d /sys/firmware/efi ] && echo "Installed in EFI mode" || echo "Installed in Legacy mode"
+
+
+# http://askubuntu.com/questions/365760/graphical-grub-editor-for-ubuntu-13-10
+# https://launchpad.net/~danielrichter2007/+archive/grub-customizer
+sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+sudo apt-get update
+sudo apt-get install -y grub-customizer
+
+
+# http://ifireball.wordpress.com/2011/10/14/running-fedoras-liveusb-creator-on-ubuntu/
+sudo apt-get install -y python-parted isomd5sum python-pyisomd5sum python-urlgrabber extlinux python-qt4 python-qt4-dbus tar
+# https://github.com/lmacken/liveusb-creator
+# sudo ./liveusb-creator-3.11.7/liveusb-creator
+
+# You need to convert your Ubuntu install into EFI mode.
+
+# get a 64 -bit Ubuntu disk if you don't have yet
+# set your BIOS (UEFI firmware) so that it boots USB/DVD in EFI mode
+# boot onto your 64bit Ubuntu disk, choose Try Ubuntu
+# connect internet, install Boot-Repair this way and use it that way in order to convert your Ubuntu install into UEFI mode.
+# http://askubuntu.com/questions/395879/how-to-create-uefi-only-bootable-usb-live-media
+
+# http://www.rodsbooks.com/linux-uefi/
+# http://askubuntu.com/questions/401323/change-legacy-mode-to-uefi-after-installing-ubuntu
+# You need to convert your Ubuntu install into EFI mode.
+# get a 64 -bit Ubuntu disk if you don't have yet
+# set your BIOS (UEFI firmware) so that it boots USB/DVD in EFI mode
+# boot onto your 64bit Ubuntu disk, choose Try Ubuntu
+# connect internet, install Boot-Repair this way and use it that way in order to convert your Ubuntu install into UEFI mode.
+# https://help.ubuntu.com/community/Boot-Repair#A2nd_option_%3a_install_Boot-Repair_in_Ubuntu
+# https://help.ubuntu.com/community/UEFI#Converting_Ubuntu_into_EFI_mode
+# cp /boot/efi/EFI/ubuntu /boot/efi/EFI/Boot
+# cp /boot/efi/EFI/Boot/shimx64.efi /boot/efi/EFI/Boot/bootx64.efi
+# https://wiki.ubuntu.com/SecurityTeam/SecureBoot
+# /boot/efi/EFI/BOOT/BOOTX64.EFI. Eg, for just grub2, copy /boot/efi/EFI/ubuntu/grubx64.efi to /boot/efi/EFI/BOOT/BOOTX64.EFI. For shim, copy /boot/efi/EFI/ubuntu/shimx64.efi to /boot/efi/EFI/BOOT/BOOTX64.EFI and then copy /boot/efi/EFI/ubuntu/grubx64.efi and grub.cfg into /boot/efi/EFI/BOOT. Note: this document assumes that you are using the 'Boot From File' method.

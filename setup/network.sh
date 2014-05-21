@@ -5,6 +5,7 @@
 # remount
 # mount -a
 
+# http://linoxide.com/linux-command/use-ip-command-linux
 
 echo "install flash plugin"
 sudo apt-get install -y flashplugin-installer
@@ -104,6 +105,13 @@ wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-ke
 sudo sh -c 'echo "deb https://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list'
 sudo apt-get update 
 sudo apt-get install -y google-chrome-unstable
+# chrome://version/
+sudo apt-get install -y libnss3-tools
+# http://blog.avirtualhome.com/adding-ssl-certificates-to-google-chrome-linux-ubuntu/
+# curl -k -o "cacert-root.crt"   "http://www.cacert.org/certs/root.crt"
+# certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "CAcert.org" -i cacert-root.crt 
+# certutil -d sql:$HOME/.pki/nssdb -A -t TC -n "name" -i certificate.crt 
+# $ certutil -L -d sql:$HOME/.pki/nssdb
 
 # chrome memory usage %
 # ps -eo pmem,comm | grep chrome | cut -d " " -f 2 | paste -sd+ | bc
@@ -132,7 +140,26 @@ sudo apt-get install -y pipelight-multi
 sudo pipelight-plugin --enable widevine
 
 # http://stackoverflow.com/questions/11779325/installing-java-plugin-for-chrome-in-ubuntu
-sudo apt-get install -y icedtea-7-plugin
+# java -version
+# Java 1.6 will require icedtea6-plugin, Java 1.7 icedtea-7-plugin.
+# http://www.webupd8.org/2011/09/how-to-install-oracle-java-7-jdk-in.html
+sudo apt-get install -y icedtea-7-plugin openjdk-7-jre
+# http://askubuntu.com/questions/450683/java-plugin-in-chromium
+# Java (IcedTea) doesn't have a PPAPI plugin available, and so it's not usable in Chromium, since Chromium 34 in Trusty has switched to the Aura rendering framework and no longer allows NPAPI plugins.
+
+# For development, you'll also want OpenJDK which you can install by using the button below:
+sudo apt-get install -y  openjdk-7-jdk
+# /usr/lib/jvm/java-7-openjdk-amd64/jre/lib/amd64/IcedTeaPlugin.so
+# /usr/lib/mozilla
+# /usr/lib/mozilla/plugins
+# mkdir -p ~/.mozilla/plugins
+# ln -s /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libnpjp2.so ~/.mozilla/plugins/
+# http://www.java.com/en/download/help/enable_browser_ubuntu.xml
+# sudo ln -sf /usr/lib/jvm/java-7-oracle/jre/lib/amd64/libnpjp2.so /usr/lib/mozilla/plugins/
+# libjavaplugin.so -> /etc/alternatives/mozilla-javaplugin.so
+# sudo rm /usr/lib/mozilla/plugins/libjavaplugin.so
+
+
 
 # http://www.webupd8.org/2014/01/enable-hardware-acceleration-in-chrome.html
 # chrome://flags/#enable-app-list
